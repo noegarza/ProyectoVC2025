@@ -1,0 +1,12 @@
+core.repositoryformatversion=0
+core.filemode=true
+core.bare=false
+core.logallrefupdates=true
+submodule.active=.
+remote.origin.url=https://github.com/noegarza/ProyectoVC2025.git
+remote.origin.fetch=+refs/heads/*:refs/remotes/origin/*
+branch.main.remote=origin
+branch.main.merge=refs/heads/main
+branch.main.vscode-merge-base=origin/main
+user.name=rpi vc repo
+user.mail=jose.amarob@udem.edu
