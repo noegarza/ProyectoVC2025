@@ -94,6 +94,8 @@ void setup() {
   pinMode(ENA2, OUTPUT);
   pinMode(ENB2, OUTPUT);
 
+  Serial.begin(9600);
+
   detener(); // para que al inicio esté detenido
 
   // Velocidad inicial (0-255)
