@@ -1,9 +1,26 @@
 import numpy as np 
 import cv2
+import serial
+import time
+
+# Conexión al Arduino (ajusta si tu puerto es diferente)
+arduino = serial.Serial('/dev/ttyACM0', 9600, timeout=1)
+time.sleep(2)  # Esperar a que Arduino reinicie
+
+print("Comandos disponibles:")
+print("1 -> Enciende LED1")
+print("2 -> Enciende LED2")
+print("3 -> Enciende LED3")
+print("a -> Apaga todos")
+
+
+
 
 webcam = cv2.VideoCapture(0)
 
 while True: 
+
+
     # Read the video frame
     _, imageFrame = webcam.read() 
 
@@ -52,10 +69,10 @@ while True:
 
     # Process contours for each color
     color_masks = [
-        (red_mask, "rojo", (0, 0, 255)),
-        (green_mask, "verde", (0, 255, 0)),
-        (blue_mask, "azul", (255, 0, 0)),
-        (white_mask, "blanco", (255, 255, 255))
+        (red_mask, "rojo", (0, 0, 255)), # atras
+        (green_mask, "verde", (0, 255, 0)), # derecha
+        (blue_mask, "azul", (255, 0, 0)), # izquierda
+        (white_mask, "blanco", (255, 255, 255)) #adelante
     ]
 
     for mask, color_name, color_bgr in color_masks:
@@ -68,12 +85,31 @@ while True:
                 max_color = color_bgr
                 max_color_name = color_name
                 max_bounding_rect = cv2.boundingRect(contour)
+                if max_color_name == "rojo":
+                    comando = '2'
+                elif max_color_name == "verde":
+                    comando = '3'
+                elif max_color_name == "blanco":
+                    comando = '1'
+                elif max_color_name == "azul":
+                    comando = '4'
+                else:
+                    comando = '5'
+
 
     # Draw only the largest contour, if found
     if max_contour is not None:
         x, y, w, h = max_bounding_rect
         imageFrame = cv2.rectangle(imageFrame, (x, y), (x + w, y + h), max_color, 2)
         cv2.putText(imageFrame, max_color_name, (x, y), cv2.FONT_HERSHEY_SIMPLEX, 1.0, max_color, 2)
+
+    # probablemente esta icondicion es innecesaria
+    if comando in ['1', '2', '3', '4', '5']:
+        arduino.write(comando.encode())  # Envía el comando
+        respuesta = arduino.readline().decode('utf-8').strip()
+        print("Arduino:", respuesta)
+    else:
+        print("Comando inválido")
 
     # Display the result
     cv2.imshow("Multiple Color Detection in Real-Time", imageFrame) 

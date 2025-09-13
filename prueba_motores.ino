@@ -17,39 +17,6 @@
 #define IN8   13 // morado
 
 
-// Pines de control del L298N
-
-/*#define IN1 8
-#define IN2 9
-#define IN3 10
-#define IN4 11
-#define ENA 5
-#define ENB 6*/
-
-void setup() {
-  // Configurar pines como salida
-  pinMode(IN1, OUTPUT);
-  pinMode(IN2, OUTPUT);
-  pinMode(IN3, OUTPUT);
-  pinMode(IN4, OUTPUT);
-  pinMode(ENA, OUTPUT);
-  pinMode(ENB, OUTPUT);
-
-  pinMode(IN5, OUTPUT);
-  pinMode(IN6, OUTPUT);
-  pinMode(IN7, OUTPUT);
-  pinMode(IN8, OUTPUT);
-  pinMode(ENA2, OUTPUT);
-  pinMode(ENB2, OUTPUT);
-
-  // Velocidad inicial (0-255)
-  analogWrite(ENA, 200);
-  analogWrite(ENB, 200);
-  analogWrite(ENA2, 200);
-  analogWrite(ENB2, 200);
-}
-
-
 // --- Funciones de movimiento ---
 void adelante() {
   digitalWrite(IN1, HIGH);
@@ -111,27 +78,52 @@ void detener() {
   digitalWrite(IN8, LOW);
 }
 
+void setup() {
+  // Configurar pines como salida
+  pinMode(IN1, OUTPUT);
+  pinMode(IN2, OUTPUT);
+  pinMode(IN3, OUTPUT);
+  pinMode(IN4, OUTPUT);
+  pinMode(ENA, OUTPUT);
+  pinMode(ENB, OUTPUT);
+
+  pinMode(IN5, OUTPUT);
+  pinMode(IN6, OUTPUT);
+  pinMode(IN7, OUTPUT);
+  pinMode(IN8, OUTPUT);
+  pinMode(ENA2, OUTPUT);
+  pinMode(ENB2, OUTPUT);
+
+  detener(); // para que al inicio esté detenido
+
+  // Velocidad inicial (0-255)
+  analogWrite(ENA, 200);
+  analogWrite(ENB, 200);
+  analogWrite(ENA2, 200);
+  analogWrite(ENB2, 200);
+}
 
 void loop() {
-  // Ambos motores adelante
-  adelante();
-  delay(2000);
+  if (Serial.available() > 0) {
+    char comando = Serial.read();
 
-  // Ambos motores atrás
-  atras();
-  delay(2000);
-
-  // Girar a la izquierda (solo motor derecho)
-  izquierda();
-  delay(2000);
-
-  // Girar a la derecha (solo motor izquierdo)
-  derecha();
-  delay(2000);
-
-  // Stop
-  detener();
-  delay(2000);
+    if (comando == '1') {
+      adelante();
+      
+    } else if (comando == '2') {
+      atras();
+      
+    } else if (comando == '3') {
+      derecha();
+      
+    } else if (comando == '4') {
+      izquierda();
+      
+    } else if (comando == '5'){
+      detener();
+    }
+  }
 }
+
 
 
