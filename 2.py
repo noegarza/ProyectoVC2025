@@ -3,18 +3,26 @@ import cv2
 import serial
 import time
 
+from datetime import datetime
+import subprocess
+
+
 # Conexión al Arduino (ajusta si tu puerto es diferente)
 arduino = serial.Serial('/dev/ttyUSB0', 9600, timeout=1)
 time.sleep(2)  # Esperar a que Arduino reinicie
 
-
 webcam = cv2.VideoCapture(0)
 
-while True: 
+# Variable temporal para guardar el frame anterior
+prev_color = None
 
+while True: 
+    now = datetime.now()
+    timestamp = now.strftime("%Y%m%d_%H%M%S")
 
     # Read the video frame
-    _, imageFrame = webcam.read() 
+    _, imageFrame = webcam.read()
+     
 
     # Convert to HSV color space
     hsvFrame = cv2.cvtColor(imageFrame, cv2.COLOR_BGR2HSV) 
@@ -95,14 +103,26 @@ while True:
         imageFrame = cv2.rectangle(imageFrame, (x, y), (x + w, y + h), max_color, 2)
         cv2.putText(imageFrame, max_color_name, (x, y), cv2.FONT_HERSHEY_SIMPLEX, 1.0, max_color, 2)
 
-    # probablemente esta icondicion es innecesaria
-    #if comando in ['1', '2', '3', '4', '5']:
     arduino.write(comando.encode())  # Envía el comando
     print("Arduino:", max_color_name)
-#else:
-    #print("Comando inválido")
+
+
+
+    
+    if prev_color is not max_color_name and max_color_name is not None:
+
+        print("Color diferente detectado!")
+
+        # Aquí puedes hacer lo que quieras (ej: guardar imagen, mandar señal, etc.)
+        filename = f"{max_color_name}_{timestamp}.jpg"
+        cv2.imwrite(filename, imageFrame)
+
+        subprocess.Popen(["rclone", "copy", filename, "vc:/imgs_colores/"])
+        print("Subido a Drive:", filename)
+
+    prev_color = max_color_name
 
     # Display the result
     cv2.imshow("Multiple Color Detection in Real-Time", imageFrame) 
-    if cv2.waitKey(10) & 0xFF == ord('q'): 
+    if cv2.waitKey(1) & 0xFF == ord('q'): 
         webcam.release()
