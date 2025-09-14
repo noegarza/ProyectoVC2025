@@ -8,10 +8,8 @@ arduino = serial.Serial('/dev/ttyUSB0', 9600, timeout=1)
 time.sleep(2)  # Esperar a que Arduino reinicie
 
 
-webcam = cv2.VideoCapture(1)
+webcam = cv2.VideoCapture(0)
 
-"""webcam.set(cv2.CAP_PROP_FRAME_WIDTH, 320)
-webcam.set(cv2.CAP_PROP_FRAME_HEIGHT, 240)"""
 while True: 
 
 
@@ -68,7 +66,7 @@ while True:
         (blue_mask, "azul", (255, 0, 0)), # izquierda
         (white_mask, "blanco", (255, 255, 255)) #adelante
     ]
-
+    comando = '5'  # Default command for no color detected
     for mask, color_name, color_bgr in color_masks:
         contours, _ = cv2.findContours(mask, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
         for contour in contours:
@@ -105,7 +103,6 @@ while True:
     #print("Comando inválido")
 
     # Display the result
-    imageFrame = cv2.cvtColor(imageFrame, cv2.COLOR_BGR2GRAY)
     cv2.imshow("Multiple Color Detection in Real-Time", imageFrame) 
     if cv2.waitKey(10) & 0xFF == ord('q'): 
         webcam.release()
