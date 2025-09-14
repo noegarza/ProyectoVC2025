@@ -61,7 +61,7 @@ void izquierda(int vel) {
 }
 
 // Detener
-void detener() {
+void detener(int vel) {
   motorControl(ENA, IN1, IN2, 0, true);
   motorControl(ENA2, IN5, IN6, 0, true);
   motorControl(ENB, IN3, IN4, 0, true);
@@ -76,7 +76,7 @@ void setup() {
 
   pinMode(ENA, OUTPUT); pinMode(ENB, OUTPUT);
   pinMode(ENA2, OUTPUT); pinMode(ENB2, OUTPUT);
-  detener();
+  detener(0);
 }
 
 void loop() {
