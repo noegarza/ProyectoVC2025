@@ -4,20 +4,14 @@ import serial
 import time
 
 # Conexión al Arduino (ajusta si tu puerto es diferente)
-arduino = serial.Serial('/dev/ttyACM0', 9600, timeout=1)
+arduino = serial.Serial('/dev/ttyUSB0', 9600, timeout=1)
 time.sleep(2)  # Esperar a que Arduino reinicie
 
-print("Comandos disponibles:")
-print("1 -> Enciende LED1")
-print("2 -> Enciende LED2")
-print("3 -> Enciende LED3")
-print("a -> Apaga todos")
 
+webcam = cv2.VideoCapture(1)
 
-
-
-webcam = cv2.VideoCapture(0)
-
+"""webcam.set(cv2.CAP_PROP_FRAME_WIDTH, 320)
+webcam.set(cv2.CAP_PROP_FRAME_HEIGHT, 240)"""
 while True: 
 
 
@@ -61,7 +55,7 @@ while True:
     white_mask = cv2.dilate(white_mask, kernel)
 
     # Store contours and their metadata
-    max_area = 300  # Minimum area threshold
+    max_area = 1000  # Minimum area threshold
     max_contour = None
     max_color = None
     max_color_name = None
@@ -104,14 +98,14 @@ while True:
         cv2.putText(imageFrame, max_color_name, (x, y), cv2.FONT_HERSHEY_SIMPLEX, 1.0, max_color, 2)
 
     # probablemente esta icondicion es innecesaria
-    if comando in ['1', '2', '3', '4', '5']:
-        arduino.write(comando.encode())  # Envía el comando
-        respuesta = arduino.readline().decode('utf-8').strip()
-        print("Arduino:", respuesta)
-    else:
-        print("Comando inválido")
+    #if comando in ['1', '2', '3', '4', '5']:
+    arduino.write(comando.encode())  # Envía el comando
+    print("Arduino:", max_color_name)
+#else:
+    #print("Comando inválido")
 
     # Display the result
+    imageFrame = cv2.cvtColor(imageFrame, cv2.COLOR_BGR2GRAY)
     cv2.imshow("Multiple Color Detection in Real-Time", imageFrame) 
     if cv2.waitKey(10) & 0xFF == ord('q'): 
         webcam.release()

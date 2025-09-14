@@ -1,0 +1,2 @@
+ls /dev/ttyUSB* --- revisar puerto usb arduino; usualmente el * seria 0 o 1
+ls /dev/video* --- revisar puerto de camara; usualmente el * seria 0 o 1
