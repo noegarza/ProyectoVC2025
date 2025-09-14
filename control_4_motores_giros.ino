@@ -16,16 +16,6 @@
 #define IN7   12 // verde
 #define IN8   13 // morado
 
-void setup() {
-  pinMode(IN1, OUTPUT); pinMode(IN2, OUTPUT);
-  pinMode(IN3, OUTPUT); pinMode(IN4, OUTPUT);
-  pinMode(IN5, OUTPUT); pinMode(IN6, OUTPUT);
-  pinMode(IN7, OUTPUT); pinMode(IN8, OUTPUT);
-
-  pinMode(ENA, OUTPUT); pinMode(ENB, OUTPUT);
-  pinMode(ENA2, OUTPUT); pinMode(ENB2, OUTPUT);
-}
-
 // --- Funciones de control ---
 void motorControl(int EN, int INa, int INb, int velocidad, bool adelante) {
   if (adelante) {
@@ -78,21 +68,36 @@ void detener() {
   motorControl(ENB2, IN7, IN8, 0, true);
 }
 
-void loop() {
-  int vel = 200; // Velocidad base (0-255)
+void setup() {
+  pinMode(IN1, OUTPUT); pinMode(IN2, OUTPUT);
+  pinMode(IN3, OUTPUT); pinMode(IN4, OUTPUT);
+  pinMode(IN5, OUTPUT); pinMode(IN6, OUTPUT);
+  pinMode(IN7, OUTPUT); pinMode(IN8, OUTPUT);
 
-  adelante(vel);
-  delay(2000);
-
-  atras(vel);
-  delay(2000);
-
-  derecha(vel);
-  delay(2000);
-
-  izquierda(vel);
-  delay(2000);
-
+  pinMode(ENA, OUTPUT); pinMode(ENB, OUTPUT);
+  pinMode(ENA2, OUTPUT); pinMode(ENB2, OUTPUT);
   detener();
-  delay(2000);
+}
+
+void loop() {
+  int vel = 50; // Velocidad base (0-255)
+  if (Serial.available() > 0) {
+    char comando = Serial.read();
+
+    if (comando == '1') {
+      adelante(vel);
+      
+    } else if (comando == '2') {
+      atras(vel);
+      
+    } else if (comando == '3') {
+      derecha(vel);
+      
+    } else if (comando == '4') {
+      izquierda(vel);
+      
+    } else if (comando == '5'){
+      detener(vel);
+    }
+  }
 }
