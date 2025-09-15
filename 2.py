@@ -6,6 +6,8 @@ import time
 from datetime import datetime
 import subprocess
 
+# para que no guarde fotos en drive al hacer pruebas
+estamosHaciendoPruebas = True
 
 # Conexión al Arduino (ajusta si tu puerto es diferente)
 arduino = serial.Serial('/dev/ttyUSB0', 9600, timeout=1)
@@ -41,12 +43,13 @@ while True:
     green_upper = np.array([86, 255, 255], np.uint8)
     green_mask = cv2.inRange(hsvFrame, green_lower, green_upper)
 
-    blue_lower = np.array([94, 80, 2], np.uint8)
-    blue_upper = np.array([126, 255, 255], np.uint8)
+    blue_lower = np.array([100, 150, 100], np.uint8) # prev: [94, 80, 2]
+    blue_upper = np.array([130, 255, 255], np.uint8)
+    
     blue_mask = cv2.inRange(hsvFrame, blue_lower, blue_upper)
 
-    white_lower = np.array([0, 0, 210], np.uint8)
-    white_upper = np.array([180, 40, 255], np.uint8)
+    white_lower = np.array([0, 0, 210], np.uint8) # prev: [0, 0, 210]
+    white_upper = np.array([180, 15, 255], np.uint8)
     white_mask = cv2.inRange(hsvFrame, white_lower, white_upper)
 
     # Morphological Transform (Dilation + Opening to reduce noise)
@@ -109,7 +112,7 @@ while True:
 
 
     
-    if prev_color is not max_color_name and max_color_name is not None:
+    if prev_color is not max_color_name and max_color_name is not None and estamosHaciendoPruebas is False:
 
         print("Color diferente detectado!")
 
