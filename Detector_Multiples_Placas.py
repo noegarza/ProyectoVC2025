@@ -160,7 +160,7 @@ while True:
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
     plates = plate_cascade.detectMultiScale(gray, 1.1, 6, minSize=(30,30))
-    margen = 30
+    margen = 10
     rects = [(x+margen, y+margen, x+w-margen, y+h-margen) for (x, y, w, h) in plates]  # Ajuste de margen
 
     objects, current_ids = tracker.update(rects)
@@ -193,25 +193,15 @@ while True:
 
     active_ids = current_ids
 
-    # === Dibujar solo los que están activos en este frame ===
+    # Dibujar solo los que están activos en este frame
     for oid in current_ids:
         (x1, y1, x2, y2) = objects[oid]
-        cv2.rectangle(frame, (x1,y1), (x2,y2), (0,255,0), 2)
-        cv2.putText(frame, f"ID {oid}", (x1, y1-10),
-                    cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0,255,0), 2)
+        cv2.rectangle(frame, (x1, y1), (x2, y2), (0, 255, 0), 2)
 
-    # HUD
-    now_sec = time.time()
-    time_left = max(0, int(end_time - now_sec))
-    mins, secs = divmod(time_left, 60)
-    cv2.putText(frame, f"Placas Detectadas: {len(counted_ids)}", (10,30), cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0,0,255), 2)
-    cv2.putText(frame, f"Tiempo restante: {mins:02d}:{secs:02d}", (10,60), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255,0,0), 2)
-    cv2.putText(frame, timestamp, (10,90), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (200,200,200), 1)
-
-    cv2.imshow("Detección y Conteo de Placas", frame)
+    cv2.imshow("Detección de Placas", frame)
     if cv2.waitKey(1) & 0xFF == ord("q"):
         break
-    if now_sec >= end_time:
+    if time.time() >= end_time:
         break
 
 # ===============================

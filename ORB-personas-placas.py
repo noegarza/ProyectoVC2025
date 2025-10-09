@@ -17,6 +17,11 @@ for entry in os.scandir("imgs/orb-placas-personas"):
     img_ref = cv2.imread(entry.path, 0)
     if img_ref is None:
         continue
+    # pre procesamiento
+    kernel = np.ones((3, 3), np.uint8)
+    img_ref = cv2.morphologyEx(img_ref, cv2.MORPH_GRADIENT, kernel)
+
+
     kp, des = orb.detectAndCompute(img_ref, None)
     h, w = img_ref.shape
     ref_imgs.append({
@@ -32,7 +37,8 @@ while True:
     ret, frame = cap.read()
     if not ret:
         break
-    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+    #gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+    gray = cv2.morphologyEx(frame, cv2.MORPH_GRADIENT, kernel)
     kp_frame, des_frame = orb.detectAndCompute(gray, None)
     if des_frame is not None:
         for ref in ref_imgs:
@@ -40,8 +46,11 @@ while True:
                 continue
             matches = bf.match(ref["des"], des_frame)
             matches = sorted(matches, key=lambda x: x.distance)
-            good_matches = matches[:30]
-            if len(good_matches) > 10:
+            # Filtrar matches por distancia
+            good_matches = [m for m in matches if m.distance < 40]
+            # Usar solo los mejores 30 si hay más
+            good_matches = good_matches[:30]
+            if len(good_matches) > 20:
                 src_pts = np.float32([ref["kp"][m.queryIdx].pt for m in good_matches]).reshape(-1,1,2)
                 dst_pts = np.float32([kp_frame[m.trainIdx].pt for m in good_matches]).reshape(-1,1,2)
                 M, mask = cv2.findHomography(src_pts, dst_pts, cv2.RANSAC, 5.0)
