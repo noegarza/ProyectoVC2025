@@ -1,0 +1,691 @@
+timestamp,plate_id,event,total_count,location,method,notes
+2025-10-09 16:24:03,1,ENTER,1,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:03,1,SEEN,1,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:03,1,EXIT,1,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:03,1,ENTER,1,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:03,1,SEEN,1,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:03,1,SEEN,1,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:04,1,EXIT,1,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:04,1,ENTER,1,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:04,1,SEEN,1,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:04,1,EXIT,1,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:04,1,ENTER,1,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:04,2,ENTER,2,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:04,1,EXIT,2,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:04,2,EXIT,2,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:04,2,ENTER,2,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:05,1,ENTER,2,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:05,2,EXIT,2,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:05,2,ENTER,2,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:05,1,SEEN,2,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:05,1,SEEN,2,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:05,2,EXIT,2,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:05,1,EXIT,2,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:05,1,ENTER,2,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:05,1,EXIT,2,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:05,2,ENTER,2,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:05,2,EXIT,2,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:05,2,ENTER,2,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:05,2,SEEN,2,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:05,1,ENTER,2,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:05,2,EXIT,2,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:05,1,SEEN,2,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:05,1,EXIT,2,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:05,1,ENTER,2,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:05,1,SEEN,2,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:05,1,SEEN,2,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:05,1,SEEN,2,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:05,2,ENTER,2,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:05,1,EXIT,2,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:05,1,ENTER,2,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:05,2,SEEN,2,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:05,1,SEEN,2,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:05,2,SEEN,2,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:05,1,EXIT,2,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:05,2,EXIT,2,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:05,2,ENTER,2,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:05,1,ENTER,2,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:05,2,EXIT,2,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:05,1,EXIT,2,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:05,1,ENTER,2,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:05,2,ENTER,2,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:05,1,EXIT,2,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:05,2,EXIT,2,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:08,3,ENTER,3,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:08,3,EXIT,3,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:08,3,ENTER,3,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:08,3,EXIT,3,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:31,4,ENTER,4,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:31,4,EXIT,4,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:31,4,ENTER,4,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:31,4,EXIT,4,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:31,4,ENTER,4,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:31,4,EXIT,4,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:31,4,ENTER,4,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:31,4,SEEN,4,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:31,4,SEEN,4,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:31,4,EXIT,4,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:31,4,ENTER,4,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:31,4,SEEN,4,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:31,4,SEEN,4,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:32,4,SEEN,4,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:32,4,SEEN,4,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:32,4,SEEN,4,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:32,4,EXIT,4,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:32,4,ENTER,4,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:32,4,EXIT,4,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:32,4,ENTER,4,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:32,4,EXIT,4,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:32,4,ENTER,4,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:32,4,SEEN,4,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:32,4,SEEN,4,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:32,4,SEEN,4,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:32,4,EXIT,4,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:32,4,ENTER,4,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:32,4,SEEN,4,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:32,4,SEEN,4,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:32,4,SEEN,4,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:32,4,SEEN,4,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:32,4,SEEN,4,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:32,4,SEEN,4,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:32,4,SEEN,4,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:32,4,SEEN,4,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:32,4,EXIT,4,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:33,4,ENTER,4,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:33,4,SEEN,4,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:33,4,SEEN,4,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:33,4,SEEN,4,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:33,4,SEEN,4,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:33,4,SEEN,4,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:33,4,SEEN,4,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:33,4,SEEN,4,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:33,4,SEEN,4,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:33,4,EXIT,4,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:33,4,ENTER,4,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:33,4,EXIT,4,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:43,5,ENTER,5,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:43,5,EXIT,5,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:43,5,ENTER,5,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:43,5,EXIT,5,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:43,6,ENTER,6,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:44,6,EXIT,6,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:44,6,ENTER,6,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:44,6,EXIT,6,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:44,6,ENTER,6,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:44,6,SEEN,6,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:44,6,EXIT,6,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:45,6,ENTER,6,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:45,6,SEEN,6,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:45,6,EXIT,6,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:45,6,ENTER,6,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:45,6,EXIT,6,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:45,6,ENTER,6,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:45,6,EXIT,6,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:45,6,ENTER,6,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:45,6,EXIT,6,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:45,6,ENTER,6,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:45,6,SEEN,6,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:45,6,SEEN,6,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:46,6,SEEN,6,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:46,8,ENTER,7,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:46,7,ENTER,8,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:46,6,SEEN,8,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:46,6,SEEN,8,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:46,7,SEEN,8,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:46,8,EXIT,8,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:46,6,SEEN,8,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:46,7,SEEN,8,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:46,6,SEEN,8,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:46,7,SEEN,8,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:46,8,ENTER,8,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:46,9,ENTER,9,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:46,6,SEEN,9,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:46,7,SEEN,9,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:46,8,SEEN,9,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:46,6,SEEN,9,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:46,7,SEEN,9,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:46,9,EXIT,9,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:46,8,SEEN,9,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:46,6,SEEN,9,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:46,7,SEEN,9,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:46,6,SEEN,9,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:46,7,SEEN,9,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:46,8,EXIT,9,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:46,6,SEEN,9,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:46,7,SEEN,9,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:46,6,SEEN,9,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:46,7,SEEN,9,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:46,6,SEEN,9,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:46,7,EXIT,9,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:46,6,SEEN,9,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:46,6,SEEN,9,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:46,6,SEEN,9,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:46,6,SEEN,9,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:46,6,SEEN,9,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:46,6,SEEN,9,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:46,6,SEEN,9,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:46,6,EXIT,9,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:46,6,ENTER,9,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:46,7,ENTER,9,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:46,6,SEEN,9,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:46,6,SEEN,9,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:46,7,EXIT,9,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:46,6,SEEN,9,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:46,6,SEEN,9,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:46,7,ENTER,9,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:46,6,EXIT,9,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:46,6,ENTER,9,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:46,7,EXIT,9,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:46,6,SEEN,9,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:46,6,SEEN,9,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:46,6,SEEN,9,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:46,6,SEEN,9,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:47,6,SEEN,9,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:47,7,ENTER,9,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:47,6,EXIT,9,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:47,7,EXIT,9,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:47,6,ENTER,9,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:47,6,SEEN,9,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:47,6,EXIT,9,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:47,6,ENTER,9,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:47,6,SEEN,9,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:47,6,EXIT,9,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:47,6,ENTER,9,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:47,6,EXIT,9,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:47,6,ENTER,9,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:47,6,SEEN,9,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:47,8,ENTER,9,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:47,6,SEEN,9,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:47,6,SEEN,9,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:47,8,EXIT,9,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:47,6,SEEN,9,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:47,6,SEEN,9,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:47,6,SEEN,9,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:47,6,EXIT,9,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:47,7,ENTER,9,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:47,7,EXIT,9,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:48,8,ENTER,9,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:48,8,SEEN,9,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:48,8,SEEN,9,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:48,6,ENTER,9,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:48,7,ENTER,9,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:48,8,SEEN,9,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:48,8,SEEN,9,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:48,6,SEEN,9,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:48,7,EXIT,9,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:48,7,ENTER,9,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:48,8,SEEN,9,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:48,6,SEEN,9,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:48,6,SEEN,9,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:48,8,EXIT,9,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:48,7,EXIT,9,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:48,8,ENTER,9,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:48,6,SEEN,9,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:48,6,SEEN,9,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:48,8,EXIT,9,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:48,6,SEEN,9,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:48,6,SEEN,9,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:48,8,ENTER,9,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:48,6,SEEN,9,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:48,6,SEEN,9,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:48,8,EXIT,9,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:48,6,SEEN,9,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:48,8,ENTER,9,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:48,6,SEEN,9,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:48,7,ENTER,9,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:48,6,SEEN,9,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:48,8,EXIT,9,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:48,6,SEEN,9,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:48,7,EXIT,9,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:48,6,EXIT,9,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:48,6,ENTER,9,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:48,7,ENTER,9,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:48,8,ENTER,9,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:48,6,SEEN,9,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:48,7,SEEN,9,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:48,10,ENTER,10,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:48,8,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:48,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:48,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:48,8,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:48,10,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:48,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:48,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:48,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:48,8,EXIT,10,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:48,10,EXIT,10,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:48,7,EXIT,10,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:48,10,ENTER,10,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:48,7,ENTER,10,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:48,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:48,10,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:48,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:48,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:48,10,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:48,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:48,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:48,10,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:48,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:48,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:48,8,ENTER,10,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:48,10,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:48,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:48,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:48,10,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:48,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:48,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:48,8,EXIT,10,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:48,10,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:48,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:48,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:49,8,ENTER,10,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:49,10,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:49,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:49,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:49,10,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:49,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:49,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:49,8,EXIT,10,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:49,10,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:49,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:49,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:49,10,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:49,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:49,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:49,10,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:49,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:49,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:49,10,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:49,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:49,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:49,10,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:49,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:49,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:49,10,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:49,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:49,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:49,10,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:49,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:49,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:49,8,ENTER,10,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:49,10,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:49,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:49,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:49,8,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:49,10,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:49,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:49,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:49,8,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:49,10,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:49,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:49,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:49,10,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:49,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:49,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:49,8,EXIT,10,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:49,10,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:49,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:49,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:49,8,ENTER,10,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:49,10,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:49,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:49,7,EXIT,10,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:49,7,ENTER,10,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:49,8,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:49,10,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:49,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:49,10,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:49,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:49,8,EXIT,10,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:49,6,EXIT,10,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:49,10,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:49,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:49,8,ENTER,10,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:49,6,ENTER,10,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:49,10,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:49,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:49,8,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:49,10,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:49,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:49,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:49,8,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:49,10,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:49,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:49,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:49,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:49,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:49,8,EXIT,10,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:49,10,EXIT,10,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:49,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:49,7,EXIT,10,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:49,7,ENTER,10,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:49,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:49,10,ENTER,10,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:49,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:49,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:49,10,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:49,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:49,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:49,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:49,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:49,10,EXIT,10,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:49,10,ENTER,10,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:49,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:49,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:49,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:49,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:49,10,EXIT,10,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:49,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:49,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:50,10,ENTER,10,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:50,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:50,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:50,8,ENTER,10,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:50,10,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:50,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:50,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:50,8,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:50,10,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:50,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:50,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:50,10,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:50,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:50,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:50,8,EXIT,10,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:50,10,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:50,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:50,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:50,10,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:50,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:50,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:50,10,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:50,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:50,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:50,10,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:50,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:50,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:50,10,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:50,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:50,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:50,10,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:50,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:50,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:50,10,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:50,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:50,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:50,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:50,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:50,10,EXIT,10,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:50,10,ENTER,10,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:50,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:50,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:50,10,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:50,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:50,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:50,10,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:50,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:50,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:50,10,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:50,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:50,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:50,10,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:50,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:50,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:50,10,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:50,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:50,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:50,10,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:50,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:50,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:50,10,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:50,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:50,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:50,10,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:50,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:50,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:50,10,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:50,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:50,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:50,8,ENTER,10,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:50,10,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:50,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:50,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:50,8,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:50,10,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:50,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:50,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:50,8,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:50,10,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:50,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:50,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:50,10,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:50,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:50,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:50,8,EXIT,10,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:50,8,ENTER,10,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:50,10,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:50,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:50,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:50,8,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:50,10,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:50,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:50,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:50,8,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:50,10,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:50,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:50,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:50,10,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:50,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:50,8,EXIT,10,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:50,7,EXIT,10,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:51,8,ENTER,10,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:51,7,ENTER,10,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:51,10,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:51,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:51,10,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:51,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:51,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:51,8,EXIT,10,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:51,8,ENTER,10,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:51,10,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:51,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:51,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:51,10,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:51,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:51,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:51,8,EXIT,10,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:51,10,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:51,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:51,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:51,10,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:51,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:51,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:51,10,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:51,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:51,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:51,8,ENTER,10,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:51,10,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:51,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:51,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:51,10,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:51,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:51,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:51,8,EXIT,10,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:51,10,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:51,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:51,7,EXIT,10,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:51,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:51,10,EXIT,10,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:51,7,ENTER,10,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:51,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:51,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:51,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:51,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:51,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:51,10,ENTER,10,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:51,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:51,7,EXIT,10,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:51,7,ENTER,10,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:51,10,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:51,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:51,10,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:51,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:51,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:51,10,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:51,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:51,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:51,10,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:51,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:51,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:51,10,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:51,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:51,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:51,8,ENTER,10,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:51,10,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:51,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:51,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:51,8,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:51,10,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:51,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:51,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:51,8,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:51,10,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:51,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:51,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:51,8,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:51,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:51,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:51,10,EXIT,10,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:51,10,ENTER,10,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:51,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:51,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:51,8,EXIT,10,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:51,8,ENTER,10,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:51,10,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:51,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:51,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:51,10,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:51,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:51,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:51,8,EXIT,10,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:51,10,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:51,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:51,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:51,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:51,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:51,10,EXIT,10,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:51,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:51,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:52,10,ENTER,10,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:52,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:52,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:52,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:52,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:52,10,EXIT,10,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:52,10,ENTER,10,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:52,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:52,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:52,10,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:52,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:52,7,EXIT,10,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:52,7,ENTER,10,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:52,10,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:52,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:52,10,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:52,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:52,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:52,10,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:52,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:52,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:52,10,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:52,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:52,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:52,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:52,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:52,10,EXIT,10,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:52,10,ENTER,10,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:52,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:52,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:52,10,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:52,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:52,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:52,10,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:52,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:52,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:52,10,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:52,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:52,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:52,10,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:52,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:52,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:52,10,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:52,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:52,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:52,10,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:52,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:52,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:52,10,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:52,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:52,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:52,10,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:52,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:52,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:52,10,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:52,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:52,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:52,10,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:52,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:52,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:52,10,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:52,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:52,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:52,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:52,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:52,10,EXIT,10,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:52,10,ENTER,10,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:52,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:52,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:52,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:52,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:52,10,EXIT,10,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:52,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:52,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:52,10,ENTER,10,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:52,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:52,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:52,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:52,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:52,10,EXIT,10,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:52,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:52,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:52,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:52,7,EXIT,10,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:53,7,ENTER,10,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:53,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:53,10,ENTER,10,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:53,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:53,7,EXIT,10,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:53,7,ENTER,10,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:53,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:53,10,EXIT,10,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:53,6,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:53,7,SEEN,10,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:53,10,ENTER,10,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:53,11,ENTER,11,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:53,6,SEEN,11,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:53,7,SEEN,11,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:53,6,SEEN,11,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:53,7,SEEN,11,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:53,10,EXIT,11,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:53,11,EXIT,11,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:53,10,ENTER,11,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:53,12,ENTER,12,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:53,6,SEEN,12,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:53,7,EXIT,12,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:53,6,SEEN,12,imgs-placas,HaarCascade-Face,
+2025-10-09 16:24:53,10,EXIT,12,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:53,12,EXIT,12,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:53,12,ENTER,12,imgs-placas,HaarCascade-Face,Nuevo ID
+2025-10-09 16:24:53,6,EXIT,12,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:53,12,EXIT,12,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 16:24:56,,SUMMARY,12,imgs-placas,HaarCascade-Face,Fin de sesión
