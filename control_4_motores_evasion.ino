@@ -112,7 +112,7 @@ void loop() {
   long distancia = medirDistancia();
 
   // --- Detección automática ---
-  if (distancia > 0 && distancia < 20) {  // Obstáculo a menos de 20 cm
+  if (distancia > 0 && distancia < 40) {  // Obstáculo a menos de 20 cm
     evadirObstaculo(vel);
     return;  // No procesar comandos mientras esquiva
   }
