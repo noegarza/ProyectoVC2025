@@ -1076,3 +1076,4 @@ timestamp,plate_id,event,total_count,location,method,notes
 2025-10-09 17:19:55,8,EXIT,9,imgs-placas,HaarCascade-Face,Salió
 2025-10-09 17:19:55,8,ENTER,9,imgs-placas,HaarCascade-Face,Nuevo ID
 2025-10-09 17:19:55,8,EXIT,9,imgs-placas,HaarCascade-Face,Salió
+2025-10-09 17:22:08,,SUMMARY,9,imgs-placas,HaarCascade-Face,Fin de sesión
