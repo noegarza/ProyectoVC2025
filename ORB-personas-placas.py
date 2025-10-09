@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 
 # === 1. Cargar imagen de referencia de placa ===
-placa_ref = cv2.imread('placa_ref.jpg', 0)  # Debe existir en tu proyecto
+placa_ref = cv2.imread('imgs/placa_ref.jpg', 0)  # Debe existir en tu proyecto
 if placa_ref is None:
     raise FileNotFoundError('No se encontró placa_ref.jpg')
 
