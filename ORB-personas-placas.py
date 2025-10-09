@@ -12,10 +12,18 @@ orb = cv2.ORB_create(nfeatures=1000)
 bf = cv2.BFMatcher(cv2.NORM_HAMMING, crossCheck=True)
 
 # === 3. Detectar y describir puntos clave en la referencia ===
-kp_des = []
-for img in os.scandir("imgs/orb-placas-personas"):
-    kp, des = orb.detectAndCompute(cv2.imread(img), None)    
-    kp_des.append((kp, des))
+ref_imgs = []
+for entry in os.scandir("imgs/orb-placas-personas"):
+    img_ref = cv2.imread(entry.path, 0)
+    if img_ref is None:
+        continue
+    kp, des = orb.detectAndCompute(img_ref, None)
+    h, w = img_ref.shape
+    ref_imgs.append({
+        "kp": kp,
+        "des": des,
+        "shape": (h, w)
+    })
 
 # === 4. Abrir video/cámara ===
 cap = cv2.VideoCapture(0)
@@ -26,18 +34,19 @@ while True:
         break
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
     kp_frame, des_frame = orb.detectAndCompute(gray, None)
-    if des_frame is not None and not kp_des:
-        for kpDesTuple in kp_des:
-            matches = bf.match(kpDesTuple[1], des_frame)
+    if des_frame is not None:
+        for ref in ref_imgs:
+            if ref["des"] is None:
+                continue
+            matches = bf.match(ref["des"], des_frame)
             matches = sorted(matches, key=lambda x: x.distance)
-            # Usar los mejores 30 matches
             good_matches = matches[:30]
             if len(good_matches) > 10:
-                src_pts = np.float32([kpDesTuple[0][m.queryIdx].pt for m in good_matches]).reshape(-1,1,2)
+                src_pts = np.float32([ref["kp"][m.queryIdx].pt for m in good_matches]).reshape(-1,1,2)
                 dst_pts = np.float32([kp_frame[m.trainIdx].pt for m in good_matches]).reshape(-1,1,2)
                 M, mask = cv2.findHomography(src_pts, dst_pts, cv2.RANSAC, 5.0)
                 if M is not None:
-                    h, w = placa_ref.shape
+                    h, w = ref["shape"]
                     pts = np.float32([[0,0],[w,0],[w,h],[0,h]]).reshape(-1,1,2)
                     dst = cv2.perspectiveTransform(pts, M)
                     frame = cv2.polylines(frame, [np.int32(dst)], True, (0,255,0), 3)
