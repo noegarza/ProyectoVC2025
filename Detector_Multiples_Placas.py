@@ -132,8 +132,11 @@ class CentroidTracker:
 # CARGAR CLASIFICADOR HAAR
 # ===============================
 plate_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_russian_plate_number.xml")
+face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_frontalface_default.xml")
 if plate_cascade.empty():
     raise RuntimeError("No se pudo cargar haarcascade_russian_plate_number.xml")
+if face_cascade.empty():
+    raise RuntimeError("No se pudo cargar haarcascade_frontalface_default.xml")
 
 # ===============================
 # VIDEO + LOG
@@ -161,7 +164,9 @@ while True:
 
     plates = plate_cascade.detectMultiScale(gray, 1.1, 6, minSize=(30,30))
     margen = 10
+    faces = face_cascade.detectMultiScale(gray, 1.1, 6, minSize=(60,60))
     rects = [(x+margen, y+margen, x+w-margen, y+h-margen) for (x, y, w, h) in plates]  # Ajuste de margen
+    rects.extend([(x, y, x+w, y+h) for (x, y, w, h) in faces])
 
     objects, current_ids = tracker.update(rects)
 
