@@ -11,7 +11,7 @@ captured_image = None
 dirTimestamp = datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
 dirTitle = f'exp {dirTimestamp}'
 imgDir = os.path.join(os.getcwd(), #asumiendo que root dir es el repo.
-                         'pruebas-no-entregables',
+                         'pruebas',
                          'histogramaFotos',
                          'output',
                          f"{dirTitle}")
