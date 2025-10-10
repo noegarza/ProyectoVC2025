@@ -1,58 +1,60 @@
 import numpy as np 
 import cv2
-import serial
+#import serial
 import time
 
 from datetime import datetime
 import subprocess
 
-# para que no guarde fotos en drive al hacer pruebas
-estamosHaciendoPruebas = True
-
-# Conexión al Arduino (ajusta si tu puerto es diferente)
-arduino = serial.Serial('/dev/ttyUSB0', 9600, timeout=1)
-time.sleep(2)  # Esperar a que Arduino reinicie
-
+# parámetros a ajustar
+estamosHaciendoPruebas = True # para que no guarde fotos en drive al hacer pruebas
 webcam = cv2.VideoCapture(0)
+#arduino = serial.Serial('/dev/ttyUSB0', 9600, timeout=1) # Conexión al Arduino (ajusta si tu puerto es diferente)
 
-# Variable temporal para guardar el frame anterior
-prev_color = None
+# auxiliares
+time.sleep(2)  # Esperar a que Arduino reinicie
+prev_color = None # Variable temporal para guardar el frame anterior
+
+# creación de límites de colores HSV (no se ocupan recalcular en loop principal)
+# Red can wrap around the hue, so we use two ranges
+red_lower1 = np.array([0, 120, 70], np.uint8)
+red_upper1 = np.array([10, 255, 255], np.uint8)
+red_lower2 = np.array([170, 120, 70], np.uint8)
+red_upper2 = np.array([180, 255, 255], np.uint8)
+green_lower = np.array([36, 100, 100], np.uint8)
+green_upper = np.array([86, 255, 255], np.uint8)
+blue_lower = np.array([100, 150, 100], np.uint8) # prev: [94, 80, 2]
+blue_upper = np.array([130, 255, 255], np.uint8)
+white_lower = np.array([0, 0, 210], np.uint8) # prev: [0, 0, 210]
+white_upper = np.array([180, 15, 255], np.uint8)
+
+"""
+processing stuff:
+
+    beforeProcessing = time.time()
+    afterProcessing = time.time()
+    processingTime = afterProcessing - beforeProcessing
+    print(f"Processing time before changing mask stuff: {processingTime}")
+"""
 
 while True: 
-    now = datetime.now()
-    timestamp = now.strftime("%Y%m%d_%H%M%S")
-
-    # Read the video frame
+    timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
     _, imageFrame = webcam.read()
-     
-
+    
     # Convert to HSV color space
     hsvFrame = cv2.cvtColor(imageFrame, cv2.COLOR_BGR2HSV) 
-
-    # Define color ranges and masks (fine-tuned)
-    # Red can wrap around the hue, so we use two ranges
-    red_lower1 = np.array([0, 120, 70], np.uint8)
-    red_upper1 = np.array([10, 255, 255], np.uint8)
-    red_lower2 = np.array([170, 120, 70], np.uint8)
-    red_upper2 = np.array([180, 255, 255], np.uint8)
+    
+    # crear máscaras binarias con el frame
     red_mask1 = cv2.inRange(hsvFrame, red_lower1, red_upper1)
     red_mask2 = cv2.inRange(hsvFrame, red_lower2, red_upper2)
     red_mask = cv2.addWeighted(red_mask1, 1.0, red_mask2, 1.0, 0.0)
-
-    green_lower = np.array([36, 100, 100], np.uint8)
-    green_upper = np.array([86, 255, 255], np.uint8)
     green_mask = cv2.inRange(hsvFrame, green_lower, green_upper)
-
-    blue_lower = np.array([100, 150, 100], np.uint8) # prev: [94, 80, 2]
-    blue_upper = np.array([130, 255, 255], np.uint8)
-    
     blue_mask = cv2.inRange(hsvFrame, blue_lower, blue_upper)
-
-    white_lower = np.array([0, 0, 210], np.uint8) # prev: [0, 0, 210]
-    white_upper = np.array([180, 15, 255], np.uint8)
     white_mask = cv2.inRange(hsvFrame, white_lower, white_upper)
+    
+    # Morphological Transform (apertura y dilatación)
+    # se hace erosión, luego dilatación, y luego dilatación.
 
-    # Morphological Transform (Dilation + Opening to reduce noise)
     kernel = np.ones((5, 5), "uint8") 
     red_mask = cv2.morphologyEx(red_mask, cv2.MORPH_OPEN, kernel)
     red_mask = cv2.dilate(red_mask, kernel)
@@ -65,10 +67,8 @@ while True:
 
     # Store contours and their metadata
     max_area = 1000  # Minimum area threshold
-    max_contour = None
-    max_color = None
-    max_color_name = None
-    max_bounding_rect = None
+    max_contour = None; max_color = None; 
+    max_color_name = None; max_bounding_rect = None
 
     # Process contours for each color
     color_masks = [
@@ -106,13 +106,11 @@ while True:
         imageFrame = cv2.rectangle(imageFrame, (x, y), (x + w, y + h), max_color, 2)
         cv2.putText(imageFrame, max_color_name, (x, y), cv2.FONT_HERSHEY_SIMPLEX, 1.0, max_color, 2)
 
-    arduino.write(comando.encode())  # Envía el comando
-    print("Arduino:", max_color_name)
+    """arduino.write(comando.encode())  # Envía el comando
+    print("Arduino:", max_color_name)"""
 
 
-
-    
-    if prev_color is not max_color_name and max_color_name is not None and estamosHaciendoPruebas is False:
+    """if prev_color is not max_color_name and max_color_name is not None and estamosHaciendoPruebas is False:
 
         print("Color diferente detectado!")
 
@@ -121,7 +119,7 @@ while True:
         cv2.imwrite(filename, imageFrame)
 
         subprocess.Popen(["rclone", "copy", filename, "vc:/imgs_colores/"])
-        print("Subido a Drive:", filename)
+        print("Subido a Drive:", filename)"""
 
     prev_color = max_color_name
 
