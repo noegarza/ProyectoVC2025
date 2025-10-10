@@ -4,26 +4,17 @@ from matplotlib import pyplot as plt
 import datetime
 import os
 
-def show_histogram(image):
-    hueChannel = image[:, :, 2]
-    hist = cv2.calcHist([hueChannel], [0], None, [256], [0, 256])
-    hist_img = np.zeros((300, 256, 3), dtype=np.uint8)
-    cv2.normalize(hist, hist, 0, 300, cv2.NORM_MINMAX)
-    for x, y in enumerate(hist):
-        cv2.line(hist_img, (x, 300), (x, 300 - int(float(y))), (0, 0, 255), 1)
-    return hist_img
-
 cap = cv2.VideoCapture(0)
 captured_image = None
 
 # definir dónde guardar imágenes 
 dirTimestamp = datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
 dirTitle = f'exp {dirTimestamp}'
-outputDir = os.path.join(os.getcwd(), #asumiendo que root dir es el repo.
+imgDir = os.path.join(os.getcwd(), #asumiendo que root dir es el repo.
                          'pruebas-no-entregables',
                          'histogramaFotos',
-                         'output')
-imgDir = os.path.join(outputDir, f"{dirTitle}")
+                         'output',
+                         f"{dirTitle}")
 os.makedirs(imgDir, exist_ok=True)
 
 # loop principal
