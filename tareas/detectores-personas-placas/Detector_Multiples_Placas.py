@@ -1,3 +1,5 @@
+### Este codigo detecta placas Y TAMBIEN rostros
+
 # Alejandro Lozano Vessi - UDEM
 # Detección de Placas en tiempo real (Haar + Tracking + Logging)
 
