@@ -155,6 +155,8 @@ while True:
 
     key = cv2.waitKey(1) & 0xFF
     if key == ord('q'):
+        if len(os.listdir(imgDir)) == 0:
+            os.rmdir(imgDir)  # eliminar carpeta si está vacía
         webcam.release()
     elif key == ord('t'):
         
