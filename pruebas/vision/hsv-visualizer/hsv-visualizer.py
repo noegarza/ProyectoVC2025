@@ -1,9 +1,14 @@
+### Visualizador HSV en tiempo real con sliders usando OpenCV
 import cv2
 import numpy as np
 import matplotlib.pyplot as plt
 import os
 
-"""imgDir = os.path.join(os.getcwd(), #asumiendo que root dir es el repo.
+"""
+ESTE PARTE ERA PARA GUARDAR IMAGENES INDIVIDUALES A PARTIR DE COLORES HSV INGRESADOS POR EL USUARIO
+
+
+    imgDir = os.path.join(os.getcwd(), #asumiendo que root dir es el repo.
                          'pruebas',
                          'vision',
                          'hsv-visualizer',
@@ -35,7 +40,7 @@ import os
     plt.savefig(os.path.join(imgDir, f'hsl_{h}-{s}-{v}.png'))
     plt.show()"""
 
-# Visualizador HSV en tiempo real con sliders usando OpenCV
+
 cv2.namedWindow('HSV Visualizer')
 
 def nothing(x):
