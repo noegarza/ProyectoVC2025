@@ -2,9 +2,10 @@ import numpy as np
 import cv2
 #import serial
 import time
-
-from datetime import datetime
+import matplotlib.pyplot as plt
+import datetime
 import subprocess
+import os
 
 # parámetros a ajustar
 estamosHaciendoPruebas = True # para que no guarde fotos en drive al hacer pruebas
@@ -15,8 +16,24 @@ webcam = cv2.VideoCapture(0)
 time.sleep(2)  # Esperar a que Arduino reinicie
 prev_color = None # Variable temporal para guardar el frame anterior
 
+# definir dónde guardar imágenes 
+dirTimestamp = datetime.datetime.now().strftime('%Y-%M-%d_%H-%M-%S')
+dirTitle = f'exp {dirTimestamp}'
+imgDir = os.path.join(os.getcwd(), #asumiendo que root dir es el repo.
+                         'pruebas',
+                         'vision',
+                         'optimizaciones-a-code-p1',
+                         'output',
+                         f"{dirTitle}")
+os.makedirs(imgDir, exist_ok=True)
+
+
 # creación de límites de colores HSV (no se ocupan recalcular en loop principal)
 # Red can wrap around the hue, so we use two ranges
+"""red_lower1 = np.array([0, 185, 10], np.uint8)
+red_upper1 = np.array([5, 255, 255], np.uint8)
+red_lower2 = np.array([175, 185, 10], np.uint8)
+red_upper2 = np.array([180, 255, 255], np.uint8)"""
 red_lower1 = np.array([0, 120, 70], np.uint8)
 red_upper1 = np.array([10, 255, 255], np.uint8)
 red_lower2 = np.array([170, 120, 70], np.uint8)
@@ -37,6 +54,7 @@ processing stuff:
     print(f"Processing time before changing mask stuff: {processingTime}")
 """
 
+numImgsGuardadas = 0; captured_image = None
 while True: 
     timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
     _, imageFrame = webcam.read()
@@ -57,13 +75,13 @@ while True:
 
     kernel = np.ones((5, 5), "uint8") 
     red_mask = cv2.morphologyEx(red_mask, cv2.MORPH_OPEN, kernel)
-    red_mask = cv2.dilate(red_mask, kernel)
-    green_mask = cv2.morphologyEx(green_mask, cv2.MORPH_OPEN, kernel)
+    red_mask = cv2.morphologyEx(red_mask, cv2.MORPH_CLOSE, kernel, iterations=3)
     green_mask = cv2.dilate(green_mask, kernel)
+    green_mask = cv2.morphologyEx(green_mask, cv2.MORPH_CLOSE, kernel, iterations=3)
     blue_mask = cv2.morphologyEx(blue_mask, cv2.MORPH_OPEN, kernel)
-    blue_mask = cv2.dilate(blue_mask, kernel)
+    blue_mask = cv2.morphologyEx(blue_mask, cv2.MORPH_CLOSE, kernel, iterations=3)
     white_mask = cv2.morphologyEx(white_mask, cv2.MORPH_OPEN, kernel)
-    white_mask = cv2.dilate(white_mask, kernel)
+    white_mask = cv2.morphologyEx(white_mask, cv2.MORPH_CLOSE, kernel, iterations=3)
 
     # Store contours and their metadata
     max_area = 1000  # Minimum area threshold
@@ -123,7 +141,43 @@ while True:
 
     prev_color = max_color_name
 
-    # Display the result
-    cv2.imshow("Multiple Color Detection in Real-Time", imageFrame) 
-    if cv2.waitKey(1) & 0xFF == ord('q'): 
+    # Mostrar las máscaras finales en ventanas separadas
+    cv2.imshow("Original", imageFrame)
+    cv2.imshow("Mascara Rojo", red_mask)
+    cv2.imshow("Mascara Verde", green_mask)
+    cv2.imshow("Mascara Azul", blue_mask)
+    cv2.imshow("Mascara Blanco", white_mask)
+
+    key = cv2.waitKey(1) & 0xFF
+    if key == ord('q'):
         webcam.release()
+    elif key == ord('t'):
+        
+        # Generar canales histograma
+        captured_image = imageFrame.copy()
+        processedImage = cv2.cvtColor(captured_image, cv2.COLOR_BGR2HSV_FULL)
+        h, s, v = cv2.split(processedImage)
+        hHist = cv2.calcHist([h], [0], None, [180], [0, 180])
+        sHist = cv2.calcHist([s], [0], None, [256], [0, 256])
+        lHist = cv2.calcHist([v], [0], None, [256], [0, 256])
+        
+        # Mostrar histograma con matplotlib
+        plt.figure('Histograma Matplotlib', figsize=(12, 6))
+        plt.plot(hHist, color='black', label='H')
+        plt.plot(sHist, color='green', label='S')
+        plt.plot(lHist, color='yellow', label='V')
+        plt.legend()
+        plt.title('Histograma HSV')
+        plt.xlabel('Valor de pixel')
+        plt.ylabel('Frecuencia')
+        plt.xticks(np.arange(0, 256, 10))
+        plt.grid()
+        
+        # guardar imagenes de frame actual e histograma en carpeta correspondiente
+        numImgsGuardadas += 1
+        cv2.imwrite(os.path.join(imgDir, f'img-{numImgsGuardadas}.jpg'), captured_image)
+        plt.savefig(os.path.join(imgDir, f'hist-hsv-{numImgsGuardadas}.png'))
+
+
+        # se ocupa hacer todo ANTES del plt.show()
+        plt.show()
