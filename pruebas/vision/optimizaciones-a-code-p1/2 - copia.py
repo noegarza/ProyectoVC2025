@@ -3,7 +3,7 @@ import cv2
 #import serial
 import time
 import matplotlib.pyplot as plt
-import datetime
+from datetime import datetime
 import subprocess
 import os
 
@@ -17,7 +17,7 @@ time.sleep(2)  # Esperar a que Arduino reinicie
 prev_color = None # Variable temporal para guardar el frame anterior
 
 # definir dónde guardar imágenes 
-dirTimestamp = datetime.datetime.now().strftime('%Y-%M-%d_%H-%M-%S')
+dirTimestamp = datetime.now().strftime('%Y-%M-%d_%H-%M-%S')
 dirTitle = f'exp {dirTimestamp}'
 imgDir = os.path.join(os.getcwd(), #asumiendo que root dir es el repo.
                          'pruebas',
@@ -35,10 +35,10 @@ red_upper1 = np.array([5, 255, 255], np.uint8)
 red_lower2 = np.array([175, 185, 10], np.uint8)
 red_upper2 = np.array([180, 255, 255], np.uint8)"""
 red_lower1 = np.array([0, 120, 70], np.uint8)
-red_upper1 = np.array([10, 255, 255], np.uint8)
+red_upper1 = np.array([8, 255, 255], np.uint8) # ajuste fino
 red_lower2 = np.array([170, 120, 70], np.uint8)
 red_upper2 = np.array([180, 255, 255], np.uint8)
-green_lower = np.array([36, 100, 100], np.uint8)
+green_lower = np.array([36, 100, 50], np.uint8)
 green_upper = np.array([86, 255, 255], np.uint8)
 blue_lower = np.array([100, 150, 100], np.uint8) # prev: [94, 80, 2]
 blue_upper = np.array([130, 255, 255], np.uint8)
@@ -74,14 +74,18 @@ while True:
     # se hace erosión, luego dilatación, y luego dilatación.
 
     kernel = np.ones((5, 5), "uint8") 
+    rIt = 8
+    gIt = 13
+    bIt = 4
+    wIt = 5
     red_mask = cv2.morphologyEx(red_mask, cv2.MORPH_OPEN, kernel)
-    red_mask = cv2.morphologyEx(red_mask, cv2.MORPH_CLOSE, kernel, iterations=3)
-    green_mask = cv2.dilate(green_mask, kernel)
-    green_mask = cv2.morphologyEx(green_mask, cv2.MORPH_CLOSE, kernel, iterations=3)
+    red_mask = cv2.morphologyEx(red_mask, cv2.MORPH_CLOSE, kernel, iterations=rIt)
+    green_mask = cv2.morphologyEx(green_mask, cv2.MORPH_OPEN, kernel)
+    green_mask = cv2.morphologyEx(green_mask, cv2.MORPH_CLOSE, kernel, iterations=gIt)
     blue_mask = cv2.morphologyEx(blue_mask, cv2.MORPH_OPEN, kernel)
-    blue_mask = cv2.morphologyEx(blue_mask, cv2.MORPH_CLOSE, kernel, iterations=3)
+    blue_mask = cv2.morphologyEx(blue_mask, cv2.MORPH_CLOSE, kernel, iterations=bIt)
     white_mask = cv2.morphologyEx(white_mask, cv2.MORPH_OPEN, kernel)
-    white_mask = cv2.morphologyEx(white_mask, cv2.MORPH_CLOSE, kernel, iterations=3)
+    white_mask = cv2.morphologyEx(white_mask, cv2.MORPH_CLOSE, kernel, iterations=wIt)
 
     # Store contours and their metadata
     max_area = 1000  # Minimum area threshold
@@ -119,10 +123,11 @@ while True:
 
 
     # Draw only the largest contour, if found
+    rectFrame = imageFrame.copy()
     if max_contour is not None:
         x, y, w, h = max_bounding_rect
-        imageFrame = cv2.rectangle(imageFrame, (x, y), (x + w, y + h), max_color, 2)
-        cv2.putText(imageFrame, max_color_name, (x, y), cv2.FONT_HERSHEY_SIMPLEX, 1.0, max_color, 2)
+        rectFrame = cv2.rectangle(rectFrame, (x, y), (x + w, y + h), max_color, 2)
+        cv2.putText(rectFrame, max_color_name, (x, y), cv2.FONT_HERSHEY_SIMPLEX, 1.0, max_color, 2)
 
     """arduino.write(comando.encode())  # Envía el comando
     print("Arduino:", max_color_name)"""
@@ -142,7 +147,7 @@ while True:
     prev_color = max_color_name
 
     # Mostrar las máscaras finales en ventanas separadas
-    cv2.imshow("Original", imageFrame)
+    cv2.imshow("Original", rectFrame)
     cv2.imshow("Mascara Rojo", red_mask)
     cv2.imshow("Mascara Verde", green_mask)
     cv2.imshow("Mascara Azul", blue_mask)
