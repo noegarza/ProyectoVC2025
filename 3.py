@@ -11,6 +11,8 @@ import os
 estamosHaciendoPruebas = True # para que no guarde fotos en drive al hacer pruebas
 webcam = cv2.VideoCapture(0)
 arduino = serial.Serial('/dev/ttyUSB0', 9600, timeout=1) # Conexión al Arduino (ajusta si tu puerto es diferente)
+comando = 'e'; arduino.write(comando.encode())  # Envía el comando
+print(f"programa principal iniciado")
 
 # auxiliares
 time.sleep(2)  # Esperar a que Arduino reinicie
