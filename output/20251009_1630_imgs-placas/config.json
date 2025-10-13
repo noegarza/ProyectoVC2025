@@ -1,8 +1,0 @@
-{
-    "location": "imgs-placas",
-    "method": "HaarCascade-Face",
-    "video_source": "0",
-    "run_time_seconds": 900,
-    "max_missing_seconds": 2.0,
-    "created": "20251009_1630"
-}
