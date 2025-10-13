@@ -20,6 +20,8 @@
 #define TRIG A0
 #define ECHO A1
 
+bool encendido = false;
+
 // --- Funciones de control ---
 void motorControl(int EN, int INa, int INb, int velocidad, bool adelante) {
   if (adelante) {
@@ -107,19 +109,30 @@ void setup() {
   detener();
 }
 
+
+
 void loop() {
   int vel = 150; // Velocidad base (0-255)
   long distancia = medirDistancia();
+  
 
   // --- Detección automática ---
-  if (distancia > 0 && distancia < 40) {  // Obstáculo a menos de 20 cm
+  if ((distancia > 0 && distancia < 40) and encendido) {  // Obstáculo a menos de 20 cm
     evadirObstaculo(vel);
     return;  // No procesar comandos mientras esquiva
+  }
+
+  if ((Serial.available() > 0) and (encendido == false)){
+    char comando = Serial.read();
+    if (comando == 'e'){
+      encendido = true;
+    }
   }
 
   // --- Control por comandos seriales ---
   if (Serial.available() > 0) {
     char comando = Serial.read();
+    
     if (comando == '1') {
       adelante(vel);
     } else if (comando == '2') {
@@ -130,6 +143,6 @@ void loop() {
       izquierda(vel);
     } else if (comando == '5'){
       detener();
-    }
+    } 
   }
 }
