@@ -11,13 +11,14 @@ import os
 estamosHaciendoPruebas = True # para que no guarde fotos en drive al hacer pruebas
 webcam = cv2.VideoCapture(0)
 arduino = serial.Serial('/dev/ttyUSB0', 9600, timeout=1) # Conexión al Arduino (ajusta si tu puerto es diferente)
-comando = 'e'; arduino.write(comando.encode())  # Envía el comando
+time.sleep(2)  # Esperar a que Arduino reinicie
+comando = 'e'; # e de 'evasion' o de 'enable' o de 'empecemos' o de 'este pues ya, no?' o de 'eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee'
+arduino.write(comando.encode())  # Envía el comando
 print(f"programa principal iniciado")
 
 # auxiliares
-time.sleep(2)  # Esperar a que Arduino reinicie
 prev_color = None # Variable temporal para guardar el frame anterior
-
+numImgsGuardadas = 0; captured_image = None
 # definir dónde guardar imágenes 
 dirTimestamp = datetime.now().strftime('%Y-%M-%d_%H-%M-%S')
 dirTitle = f'exp {dirTimestamp}'
@@ -42,7 +43,7 @@ white_upper = np.array([180, 15, 255], np.uint8)
 
 
 
-numImgsGuardadas = 0; captured_image = None
+
 while True: 
     timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
     _, imageFrame = webcam.read()
