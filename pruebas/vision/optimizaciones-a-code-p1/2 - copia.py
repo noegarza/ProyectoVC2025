@@ -30,10 +30,7 @@ os.makedirs(imgDir, exist_ok=True)
 
 # creación de límites de colores HSV (no se ocupan recalcular en loop principal)
 # Red can wrap around the hue, so we use two ranges
-"""red_lower1 = np.array([0, 185, 10], np.uint8)
-red_upper1 = np.array([5, 255, 255], np.uint8)
-red_lower2 = np.array([175, 185, 10], np.uint8)
-red_upper2 = np.array([180, 255, 255], np.uint8)"""
+
 red_lower1 = np.array([0, 120, 70], np.uint8)
 red_upper1 = np.array([8, 255, 255], np.uint8) # ajuste fino
 red_lower2 = np.array([170, 120, 70], np.uint8)
@@ -54,14 +51,18 @@ processing stuff:
     print(f"Processing time before changing mask stuff: {processingTime}")
 """
 
+# Operaciones morfológicas
+MORPH_KERNEL = np.ones((5, 5), "uint8") 
+RED_IT = 8; GREEN_IT = 13; BLUE_IT = 4; WHITE_IT = 5 # número de veces que se hace CIERRE por cada máscara
+
+# Store contours and their metadata
+max_area = 1000  # Minimum area threshold
+max_contour = None; max_color = None; 
+max_color_name = None; max_bounding_rect = None
+
 numImgsGuardadas = 0; captured_image = None
-while True: 
-    timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-    _, imageFrame = webcam.read()
-    
-    # Convert to HSV color space
-    hsvFrame = cv2.cvtColor(imageFrame, cv2.COLOR_BGR2HSV) 
-    
+
+def getMasksFromHSV(hsvFrame):
     # crear máscaras binarias con el frame
     red_mask1 = cv2.inRange(hsvFrame, red_lower1, red_upper1)
     red_mask2 = cv2.inRange(hsvFrame, red_lower2, red_upper2)
@@ -71,27 +72,27 @@ while True:
     white_mask = cv2.inRange(hsvFrame, white_lower, white_upper)
     
     # Morphological Transform (apertura y dilatación)
-    # se hace erosión, luego dilatación, y luego dilatación.
+    # se hace erosión, luego dilatación, y luego dilatación. 
+    
+    red_mask = cv2.morphologyEx(red_mask, cv2.MORPH_OPEN, MORPH_KERNEL)
+    red_mask = cv2.morphologyEx(red_mask, cv2.MORPH_CLOSE, MORPH_KERNEL, iterations=RED_IT)
+    green_mask = cv2.morphologyEx(green_mask, cv2.MORPH_OPEN, MORPH_KERNEL)
+    green_mask = cv2.morphologyEx(green_mask, cv2.MORPH_CLOSE, MORPH_KERNEL, iterations=GREEN_IT)
+    blue_mask = cv2.morphologyEx(blue_mask, cv2.MORPH_OPEN, MORPH_KERNEL)
+    blue_mask = cv2.morphologyEx(blue_mask, cv2.MORPH_CLOSE, MORPH_KERNEL, iterations=BLUE_IT)
+    white_mask = cv2.morphologyEx(white_mask, cv2.MORPH_OPEN, MORPH_KERNEL)
+    white_mask = cv2.morphologyEx(white_mask, cv2.MORPH_CLOSE, MORPH_KERNEL, iterations=WHITE_IT)
+    return red_mask, green_mask, blue_mask, white_mask
 
-    kernel = np.ones((5, 5), "uint8") 
-    rIt = 8
-    gIt = 13
-    bIt = 4
-    wIt = 5
-    red_mask = cv2.morphologyEx(red_mask, cv2.MORPH_OPEN, kernel)
-    red_mask = cv2.morphologyEx(red_mask, cv2.MORPH_CLOSE, kernel, iterations=rIt)
-    green_mask = cv2.morphologyEx(green_mask, cv2.MORPH_OPEN, kernel)
-    green_mask = cv2.morphologyEx(green_mask, cv2.MORPH_CLOSE, kernel, iterations=gIt)
-    blue_mask = cv2.morphologyEx(blue_mask, cv2.MORPH_OPEN, kernel)
-    blue_mask = cv2.morphologyEx(blue_mask, cv2.MORPH_CLOSE, kernel, iterations=bIt)
-    white_mask = cv2.morphologyEx(white_mask, cv2.MORPH_OPEN, kernel)
-    white_mask = cv2.morphologyEx(white_mask, cv2.MORPH_CLOSE, kernel, iterations=wIt)
 
-    # Store contours and their metadata
-    max_area = 1000  # Minimum area threshold
-    max_contour = None; max_color = None; 
-    max_color_name = None; max_bounding_rect = None
-
+while True: 
+    timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+    _, imageFrame = webcam.read()
+    
+    # Convert to HSV color space
+    hsvFrame = cv2.cvtColor(imageFrame, cv2.COLOR_BGR2HSV) 
+    red_mask, green_mask, blue_mask, white_mask = getMasksFromHSV(hsvFrame)
+    
     # Process contours for each color
     color_masks = [
         (red_mask, "rojo", (0, 0, 255)), # atras
@@ -99,10 +100,11 @@ while True:
         (blue_mask, "azul", (255, 0, 0)), # izquierda
         (white_mask, "blanco", (255, 255, 255)) #adelante
     ]
+    
     comando = '5'  # Default command for no color detected
-    for mask, color_name, color_bgr in color_masks:
-        contours, _ = cv2.findContours(mask, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
-        for contour in contours:
+    for mask, color_name, color_bgr in color_masks: # O(1)
+        contours, _ = cv2.findContours(mask, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE) 
+        for contour in contours: # O(n)
             area = cv2.contourArea(contour)
             if area > max_area:
                 max_area = area
