@@ -17,7 +17,7 @@ time.sleep(2)  # Esperar a que Arduino reinicie
 prev_color = None # Variable temporal para guardar el frame anterior
 
 # definir dónde guardar imágenes 
-dirTimestamp = datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
+dirTimestamp = datetime.now().strftime('%Y-%m-%d_%H-%M-%S') # las minusculas se usan para la fecha y las mayusculas para horas!
 dirTitle = f'exp {dirTimestamp}'
 imgDir = os.path.join(os.getcwd(), #asumiendo que root dir es el repo.
                          'pruebas',
