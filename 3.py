@@ -143,12 +143,20 @@ while True:
     cv2.imshow("Mascara Azul", blue_mask)
     cv2.imshow("Mascara Blanco", white_mask)"""
 
-    key = cv2.waitKey(1) & 0xFF
-    if key == ord('q'):
-        if len(os.listdir(imgDir)) == 0:
-            os.rmdir(imgDir)  # eliminar carpeta si está vacía
-        webcam.release()
-    elif key == ord('t'):
+  key = cv2.waitKey(1) & 0xFF
+  if key == ord('q'):
+    # Enviar comando de parada y volver al modo inactivo
+    arduino.write(b'x')  # 'x' = detener y desactivar evasión
+    print("Programa detenido. Señal enviada al Arduino.")
+    time.sleep(1)  # breve pausa para asegurar envío
+
+    if len(os.listdir(imgDir)) == 0:
+        os.rmdir(imgDir)  # eliminar carpeta si está vacía
+    webcam.release()
+    cv2.destroyAllWindows()
+    break
+    
+  elif key == ord('t'):
         
         # Generar canales histograma
         captured_image = imageFrame.copy()
