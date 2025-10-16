@@ -42,6 +42,11 @@ white_lower = np.array([0, 0, 210], np.uint8) # prev: [0, 0, 210]
 white_upper = np.array([180, 15, 255], np.uint8)
 
 
+kernel = np.ones((5, 5), "uint8") 
+rIt = 8
+gIt = 13
+bIt = 4
+wIt = 5
 
 
 while True: 
@@ -62,11 +67,7 @@ while True:
     # Morphological Transform (apertura y dilatación)
     # se hace erosión, luego dilatación, y luego dilatación.
 
-    kernel = np.ones((5, 5), "uint8") 
-    rIt = 8
-    gIt = 13
-    bIt = 4
-    wIt = 5
+
     red_mask = cv2.morphologyEx(red_mask, cv2.MORPH_OPEN, kernel)
     red_mask = cv2.morphologyEx(red_mask, cv2.MORPH_CLOSE, kernel, iterations=rIt)
     green_mask = cv2.morphologyEx(green_mask, cv2.MORPH_OPEN, kernel)
