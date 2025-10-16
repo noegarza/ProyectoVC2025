@@ -144,17 +144,16 @@ while True:
         print("Programa detenido. Señal enviada al Arduino.")
         time.sleep(1)  # breve pausa para asegurar envío
 
-    if len(os.listdir(imgDir)) == 0:
-        os.rmdir(imgDir)  # eliminar carpeta si está vacía
-    webcam.release()
-    cv2.destroyAllWindows()
-    break
-    
-  elif key == ord('t'):
-        
+        if len(os.listdir(imgDir)) == 0:
+            os.rmdir(imgDir)  # eliminar carpeta si está vacía
+        webcam.release()
+        cv2.destroyAllWindows()
+        break
+
+    elif key == ord('t'):
         # Generar canales histograma
-    captured_image = imageFrame.copy()
-    processedImage = cv2.cvtColor(captured_image, cv2.COLOR_BGR2HSV_FULL)
+        captured_image = imageFrame.copy()
+        processedImage = cv2.cvtColor(captured_image, cv2.COLOR_BGR2HSV_FULL)
         h, s, v = cv2.split(processedImage)
         hHist = cv2.calcHist([h], [0], None, [180], [0, 180])
         sHist = cv2.calcHist([s], [0], None, [256], [0, 256])
