@@ -8,46 +8,43 @@ import subprocess
 import os
 
 # parámetros a ajustar
-estamosHaciendoPruebas = True # para que no guarde fotos en drive al hacer pruebas
+estamosHaciendoPruebas = True  # para que no guarde fotos en drive al hacer pruebas
 webcam = cv2.VideoCapture(0)
-arduino = serial.Serial('/dev/ttyUSB0', 9600, timeout=1) # Conexión al Arduino (ajusta si tu puerto es diferente)
+arduino = serial.Serial('/dev/ttyUSB0', 9600, timeout=1)  # Conexión al Arduino (ajusta si tu puerto es diferente)
 time.sleep(2)  # Esperar a que Arduino reinicie
-comando = 'e'; # e de 'evasion' o de 'enable' o de 'empecemos' o de 'este pues ya, no?' o de 'eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee'
+comando = 'e'  # e de 'evasion' o de 'enable' o de 'empecemos' o de 'este pues ya, no?' o de 'eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee'
 arduino.write(comando.encode())  # Envía el comando
 print(f"programa principal iniciado")
 
 # auxiliares
-prev_color = None # Variable temporal para guardar el frame anterior
-numImgsGuardadas = 0; captured_image = None
+prev_color = None  # Variable temporal para guardar el frame anterior
+numImgsGuardadas = 0
+captured_image = None
+
 # definir dónde guardar imágenes 
 dirTimestamp = datetime.now().strftime('%Y-%M-%d_%H-%M-%S')
 dirTitle = f'exp {dirTimestamp}'
-imgDir = os.path.join(os.getcwd(),
-                         'output',
-                         f"{dirTitle}")
+imgDir = os.path.join(os.getcwd(), 'output', f"{dirTitle}")
 os.makedirs(imgDir, exist_ok=True)
-
 
 # creación de límites de colores HSV (no se ocupan recalcular en loop principal)
 # Red can wrap around the hue, so we use two ranges
 red_lower1 = np.array([0, 120, 70], np.uint8)
-red_upper1 = np.array([8, 255, 255], np.uint8) # ajuste fino
+red_upper1 = np.array([8, 255, 255], np.uint8)  # ajuste fino
 red_lower2 = np.array([170, 120, 70], np.uint8)
 red_upper2 = np.array([180, 255, 255], np.uint8)
 green_lower = np.array([36, 100, 50], np.uint8)
 green_upper = np.array([86, 255, 255], np.uint8)
-blue_lower = np.array([100, 150, 100], np.uint8) # prev: [94, 80, 2]
+blue_lower = np.array([100, 150, 100], np.uint8)  # prev: [94, 80, 2]
 blue_upper = np.array([130, 255, 255], np.uint8)
-white_lower = np.array([0, 0, 210], np.uint8) # prev: [0, 0, 210]
+white_lower = np.array([0, 0, 210], np.uint8)  # prev: [0, 0, 210]
 white_upper = np.array([180, 15, 255], np.uint8)
-
 
 kernel = np.ones((5, 5), "uint8") 
 rIt = 8
 gIt = 13
 bIt = 4
 wIt = 5
-
 
 while True: 
     timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
@@ -65,9 +62,6 @@ while True:
     white_mask = cv2.inRange(hsvFrame, white_lower, white_upper)
     
     # Morphological Transform (apertura y dilatación)
-    # se hace erosión, luego dilatación, y luego dilatación.
-
-
     red_mask = cv2.morphologyEx(red_mask, cv2.MORPH_OPEN, kernel)
     red_mask = cv2.morphologyEx(red_mask, cv2.MORPH_CLOSE, kernel, iterations=rIt)
     green_mask = cv2.morphologyEx(green_mask, cv2.MORPH_OPEN, kernel)
@@ -79,17 +73,20 @@ while True:
 
     # Store contours and their metadata
     max_area = 1000  # Minimum area threshold
-    max_contour = None; max_color = None; 
-    max_color_name = None; max_bounding_rect = None
+    max_contour = None
+    max_color = None
+    max_color_name = None
+    max_bounding_rect = None
 
     # Process contours for each color
     color_masks = [
-        (red_mask, "rojo", (0, 0, 255)), # atras
-        (green_mask, "verde", (0, 255, 0)), # derecha
-        (blue_mask, "azul", (255, 0, 0)), # izquierda
-        (white_mask, "blanco", (255, 255, 255)) #adelante
+        (red_mask, "rojo", (0, 0, 255)),   # atras
+        (green_mask, "verde", (0, 255, 0)),  # derecha
+        (blue_mask, "azul", (255, 0, 0)),    # izquierda
+        (white_mask, "blanco", (255, 255, 255))  # adelante
     ]
     comando = '5'  # Default command for no color detected
+
     for mask, color_name, color_bgr in color_masks:
         contours, _ = cv2.findContours(mask, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
         for contour in contours:
@@ -111,7 +108,6 @@ while True:
                 else:
                     comando = '5'
 
-
     # Draw only the largest contour, if found
     rectFrame = imageFrame.copy()
     if max_contour is not None:
@@ -122,9 +118,7 @@ while True:
     arduino.write(comando.encode())  # Envía el comando
     print("Arduino:", max_color_name)
 
-
     if prev_color is not max_color_name and max_color_name is not None and estamosHaciendoPruebas is False:
-
         print("Color diferente detectado!")
 
         # Aquí puedes hacer lo que quieras (ej: guardar imagen, mandar señal, etc.)
@@ -145,11 +139,18 @@ while True:
 
     key = cv2.waitKey(1) & 0xFF
     if key == ord('q'):
+        # Enviar comando de parada y volver al modo inactivo
+        arduino.write(b'x')  # 'x' = detener y desactivar evasión
+        print("Programa detenido. Señal enviada al Arduino.")
+        time.sleep(1)  # breve pausa para asegurar envío
+
         if len(os.listdir(imgDir)) == 0:
             os.rmdir(imgDir)  # eliminar carpeta si está vacía
         webcam.release()
+        cv2.destroyAllWindows()
+        break
+
     elif key == ord('t'):
-        
         # Generar canales histograma
         captured_image = imageFrame.copy()
         processedImage = cv2.cvtColor(captured_image, cv2.COLOR_BGR2HSV_FULL)
@@ -170,11 +171,10 @@ while True:
         plt.xticks(np.arange(0, 256, 10))
         plt.grid()
         
-        # guardar imagenes de frame actual e histograma en carpeta correspondiente
+        # guardar imágenes de frame actual e histograma en carpeta correspondiente
         numImgsGuardadas += 1
         cv2.imwrite(os.path.join(imgDir, f'img-{numImgsGuardadas}.jpg'), captured_image)
         plt.savefig(os.path.join(imgDir, f'hist-hsv-{numImgsGuardadas}.png'))
-
 
         # se ocupa hacer todo ANTES del plt.show()
         plt.show()
