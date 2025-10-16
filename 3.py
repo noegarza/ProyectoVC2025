@@ -143,24 +143,23 @@ while True:
     cv2.imshow("Mascara Azul", blue_mask)
     cv2.imshow("Mascara Blanco", white_mask)"""
 
-  key = cv2.waitKey(1) & 0xFF
-  if key == ord('q'):
-    # Enviar comando de parada y volver al modo inactivo
-    arduino.write(b'x')  # 'x' = detener y desactivar evasión
-    print("Programa detenido. Señal enviada al Arduino.")
-    time.sleep(1)  # breve pausa para asegurar envío
+    key = cv2.waitKey(1) & 0xFF
+    if key == ord('q'):
+        # Enviar comando de parada y volver al modo inactivo
+        arduino.write(b'x')  # 'x' = detener y desactivar evasión
+        print("Programa detenido. Señal enviada al Arduino.")
+        time.sleep(1)  # breve pausa para asegurar envío
 
     if len(os.listdir(imgDir)) == 0:
         os.rmdir(imgDir)  # eliminar carpeta si está vacía
-    webcam.release()
-    cv2.destroyAllWindows()
+        webcam.release()
+        cv2.destroyAllWindows()
     break
     
-  elif key == ord('t'):
-        
+    elif key == ord('t'):
         # Generar canales histograma
-        captured_image = imageFrame.copy()
-        processedImage = cv2.cvtColor(captured_image, cv2.COLOR_BGR2HSV_FULL)
+    captured_image = imageFrame.copy()
+    processedImage = cv2.cvtColor(captured_image, cv2.COLOR_BGR2HSV_FULL)
         h, s, v = cv2.split(processedImage)
         hHist = cv2.calcHist([h], [0], None, [180], [0, 180])
         sHist = cv2.calcHist([s], [0], None, [256], [0, 256])
