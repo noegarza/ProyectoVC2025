@@ -2,7 +2,7 @@ from ultralytics import YOLO
 import cv2
 
 # Ruta al modelo entrenado
-model_path = "modelos-YOLO/train17/weights/best.pt"
+model_path = "modelos-YOLO/v8n-e10-imgsz640/weights/best.pt"
 model = YOLO(model_path)
 
 # Abrir cámara
