@@ -62,7 +62,15 @@ max_color_name = None; max_bounding_rect = None
 
 numImgsGuardadas = 0; captured_image = None
 
-def getMasksFromHSV(hsvFrame):
+while True: 
+    timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+    _, imageFrame = webcam.read()
+    height, width = imageFrame.shape[:2]
+    print(f"Ancho: {width}, Alto: {height}")
+    
+    # Convert to HSV color space
+    hsvFrame = cv2.cvtColor(imageFrame, cv2.COLOR_BGR2HSV) 
+    
     # crear máscaras binarias con el frame
     red_mask1 = cv2.inRange(hsvFrame, red_lower1, red_upper1)
     red_mask2 = cv2.inRange(hsvFrame, red_lower2, red_upper2)
@@ -82,17 +90,6 @@ def getMasksFromHSV(hsvFrame):
     blue_mask = cv2.morphologyEx(blue_mask, cv2.MORPH_CLOSE, MORPH_KERNEL, iterations=BLUE_IT)
     white_mask = cv2.morphologyEx(white_mask, cv2.MORPH_OPEN, MORPH_KERNEL)
     white_mask = cv2.morphologyEx(white_mask, cv2.MORPH_CLOSE, MORPH_KERNEL, iterations=WHITE_IT)
-    return red_mask, green_mask, blue_mask, white_mask
-
-
-while True: 
-    timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-    _, imageFrame = webcam.read()
-    
-    # Convert to HSV color space
-    hsvFrame = cv2.cvtColor(imageFrame, cv2.COLOR_BGR2HSV) 
-    red_mask, green_mask, blue_mask, white_mask = getMasksFromHSV(hsvFrame)
-    
     # Process contours for each color
     color_masks = [
         (red_mask, "rojo", (0, 0, 255)), # atras
