@@ -2,7 +2,7 @@ from ultralytics import YOLO
 import cv2
 
 # Ruta al modelo entrenado
-model_path = r"C:\Users\joabl\runs\detect\train17\weights\best.pt"
+model_path = "modelos-YOLO/train17/weights/best.pt"
 model = YOLO(model_path)
 
 # Abrir cámara
@@ -15,7 +15,7 @@ while True:
 	results = model(frame, verbose=False)
 	# Mostrar resultados en ventana
 	annotated_frame = results[0].plot()
-	cv2.imshow("YOLOv8 Inference", annotated_frame)
+	cv2.imshow("YOLO Inference", annotated_frame)
 	if cv2.waitKey(1) & 0xFF == ord('q'):
 		break
 cap.release()
