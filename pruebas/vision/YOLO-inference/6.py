@@ -61,6 +61,7 @@ def getGreatestBoxCords(boxes):
 		return None, None, None, None
 
 imageSize = 1.5
+last_comando = '0'
 
 # Abrir cámara
 cap = cv2.VideoCapture(0)
@@ -84,6 +85,7 @@ while True:
 	boxes = results[0].boxes
 	x1, y1, x2, y2 = getGreatestBoxCords(boxes)
 	comando = '0'
+	
 	if None not in (x1, y1, x2, y2):
 		xCenter = (x1+x2)//2
 		if xCenter < xd1:
@@ -100,7 +102,9 @@ while True:
 		#print("detente chaaave")
 		comando = '0'
 	#time.sleep(0.01)
-	arduino.write(comando.encode())  # Envía el comando
+	if comando != last_comando:
+		arduino.write(comando.encode())
+		last_comando = comando
 	
 	cv2.imshow("YOLO Inference", annotated_frame)
 	if cv2.waitKey(1) & 0xFF == ord('q'):
