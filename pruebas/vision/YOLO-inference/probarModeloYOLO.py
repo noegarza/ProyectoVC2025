@@ -4,7 +4,7 @@ from ultralytics import YOLO
 import cv2
 
 # Ruta al modelo entrenado
-model_path = "modelos-YOLO/v8n-e10-imgsz320/weights/best.pt"
+model_path = "modelos-YOLO/v8n-e20-imgsz80/weights/best.pt"
 model = YOLO(model_path)
 
 
