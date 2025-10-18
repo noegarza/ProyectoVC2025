@@ -1,0 +1,12 @@
+names:
+- tennis-ball
+nc: 1
+roboflow:
+  license: CC BY 4.0
+  project: tennis-balls-ciwdv
+  url: https://universe.roboflow.com/amaro27/tennis-balls-ciwdv/dataset/1
+  version: 1
+  workspace: amaro27
+test: ../test/images
+train: ../train/images
+val: ../valid/images
