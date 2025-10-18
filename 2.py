@@ -7,7 +7,7 @@ from datetime import datetime
 import subprocess
 
 # para que no guarde fotos en drive al hacer pruebas
-estamosHaciendoPruebas = False
+estamosHaciendoPruebas = True
 
 # Conexión al Arduino (ajusta si tu puerto es diferente)
 arduino = serial.Serial('/dev/ttyUSB0', 9600, timeout=1)
