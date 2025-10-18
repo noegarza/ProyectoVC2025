@@ -3,6 +3,10 @@ import cv2
 import serial
 import time
 
+arduino = serial.Serial('/dev/ttyUSB0', 9600, timeout=1)
+time.sleep(2)  # Esperar a que Arduino reinicie
+comando = '0'
+
 while True:
 
     max_color_name = input("sobres padrino: ")
