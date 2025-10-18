@@ -4,7 +4,7 @@ from ultralytics import YOLO
 import cv2
 
 # Ruta al modelo entrenado
-model_path = "modelos-YOLO/v8n-e20-imgsz80/weights/best.pt"
+model_path = "modelos-YOLO/v8n-e20-imgsz30/weights/best.pt"
 model = YOLO(model_path)
 
 
@@ -29,13 +29,15 @@ def getGreatestBoxCords(boxes):
 	else:
 		return None, None, None, None
 
+imageSize = 1.5
+
 # Abrir cámara
 cap = cv2.VideoCapture(0)
 while True:
 	ret, frame = cap.read()
 	if not ret:
 		break
-	frame = cv2.resize(frame, None, fx=1.5, fy=1.5)
+	frame = cv2.resize(frame, None, fx=imageSize, fy=imageSize)
 	# Dividir el frame en 3 partes iguales en X
 	h, w, _ = frame.shape
 	xd1 = w//3
@@ -44,6 +46,7 @@ while True:
 	results = model(frame, verbose=False)
 	# Mostrar resultados en ventana
 	annotated_frame = results[0].plot()
+	#annotated_frame= frame.copy()
 	# Dibujar líneas verticales en xd1 y xd2
 	cv2.line(annotated_frame, (xd1, 0), (xd1, h), (0, 0, 255), 2)
 	cv2.line(annotated_frame, (xd2, 0), (xd2, h), (0, 0, 255), 2)
