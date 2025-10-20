@@ -8,7 +8,7 @@ import time
 import cv2
 import traceback
 
-HOST       = ''
+HOST       = '172.32.172.199'
 VIDEO_PORT = 50000
 
 vid_sock  = socket.socket(socket.AF_INET, socket.SOCK_STREAM)

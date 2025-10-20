@@ -15,6 +15,12 @@ time.sleep(2)
 model_path = "modelos-YOLO/v8n-e30-imgsz40/weights/best.pt"
 model = YOLO(model_path)
 
+# Variables HUD
+prev_time = time.time()
+fps = 0
+max_inliers = 1  # para calcular el ratio
+font = cv2.FONT_HERSHEY_SIMPLEX
+
 
 def getRectArea(x1, y1, x2, y2):
 	area = (x2 - x1)*(y2 - y1)
@@ -69,6 +75,12 @@ while True:
 	ret, frame = cap.read()
 	if not ret:
 		break
+
+	# Calcular FPS
+	current_time = time.time()
+	fps = 1.0 / (current_time - prev_time)
+	prev_time = current_time
+
 	frame = cv2.resize(frame, None, fx=imageSize, fy=imageSize)
 	# Dividir el frame en 3 partes iguales en X
 	h, w, _ = frame.shape
@@ -79,6 +91,12 @@ while True:
 	# Mostrar resultados en ventana
 	annotated_frame = results[0].plot()
 	#annotated_frame= frame.copy()
+
+    # Calcular número de “inliers” (áreas azules detectadas)
+	inliers = len(contours)
+	max_inliers = max(max_inliers, inliers)
+	inlier_ratio = inliers / max_inliers if max_inliers > 0 else 0
+
 	# Dibujar líneas verticales en xd1 y xd2
 	cv2.line(annotated_frame, (xd1, 0), (xd1, h), (0, 0, 255), 2)
 	cv2.line(annotated_frame, (xd2, 0), (xd2, h), (0, 0, 255), 2)
@@ -106,7 +124,18 @@ while True:
 		arduino.write(comando.encode())
 		last_comando = comando
 	
+
+	 # ===============================
+    # HUD (Heads-Up Display)
+    # ===============================
+	cv2.putText(frame, f"Estado: Lab Robotica", (10, 30), font, 0.7, color_status, 2)
+	cv2.putText(frame, f"FPS: {fps:.1f}", (10, 60), font, 0.7, (255, 255, 0), 2)
+	cv2.putText(frame, f"Inliers: {inliers}", (10, 90), font, 0.7, (0, 255, 0), 2)
+	cv2.putText(frame, f"Inlier Ratio: {inlier_ratio:.2f}", (10, 120), font, 0.7, (255, 0, 255), 2)
 	cv2.imshow("YOLO Inference", annotated_frame)
+
+
+
 	if cv2.waitKey(1) & 0xFF == ord('q'):
 		break
 cap.release()

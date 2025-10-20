@@ -33,7 +33,7 @@ print(f"[SERVIDOR] Video conectado:   {addr_v}")
 
 # — Hilo de vídeo —
 
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(1)
 while True:
     ret, frame = cap.read()
     if not ret:
