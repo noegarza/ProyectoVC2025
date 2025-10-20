@@ -9,8 +9,11 @@ import time
 from datetime import datetime
 import subprocess
 
-arduino = serial.Serial('/dev/ttyACM0', 115200, timeout=1)
+arduino = serial.Serial('/dev/ttyUSB0', 115200, timeout=1)
 time.sleep(2) 
+comando = 'e'  # e de 'evasion' o de 'enable' o de 'empecemos' o de 'este pues ya, no?' o de 'eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee'
+arduino.write(comando.encode())  # Envía el comando
+print(f"programa principal iniciado")
 # Ruta al modelo entrenado
 model_path = "modelos-YOLO/v8n-e30-imgsz40/weights/best.pt"
 model = YOLO(model_path)
@@ -104,11 +107,17 @@ while True:
 	#time.sleep(0.01)
 	if comando != last_comando:
 		arduino.write(comando.encode())
+		time.sleep(0.3)
 		last_comando = comando
 	
 	cv2.imshow("YOLO Inference", annotated_frame)
-	if cv2.waitKey(1) & 0xFF == ord('q'):
+	key = cv2.waitKey(1) & 0xFF
+	if key == ord('q'):
+		# Enviar comando de parada y volver al modo inactivo
+		arduino.write(b'x')  # 'x' = detener y desactivar evasión
+		print("Programa detenido. Señal enviada al Arduino.")
+		time.sleep(1)  # breve pausa para asegurar envío
+		cap.release()
+		cv2.destroyAllWindows()
 		break
-cap.release()
-cv2.destroyAllWindows()
 
