@@ -1,0 +1,11 @@
+timestamp,person_id,event,total_count,location,method,notes
+2025-10-20 14:13:18,1,ENTER,1,Biblioteca_UDEM,HaarCascade-Face,Nuevo ID
+2025-10-20 14:13:19,1,SEEN,1,Biblioteca_UDEM,HaarCascade-Face,
+2025-10-20 14:13:19,1,EXIT,1,Biblioteca_UDEM,HaarCascade-Face,Salió
+2025-10-20 14:13:19,2,ENTER,2,Biblioteca_UDEM,HaarCascade-Face,Nuevo ID
+2025-10-20 14:13:19,2,EXIT,2,Biblioteca_UDEM,HaarCascade-Face,Salió
+2025-10-20 14:13:20,3,ENTER,3,Biblioteca_UDEM,HaarCascade-Face,Nuevo ID
+2025-10-20 14:13:20,3,EXIT,3,Biblioteca_UDEM,HaarCascade-Face,Salió
+2025-10-20 14:13:22,4,ENTER,4,Biblioteca_UDEM,HaarCascade-Face,Nuevo ID
+2025-10-20 14:13:22,4,EXIT,4,Biblioteca_UDEM,HaarCascade-Face,Salió
+2025-10-20 14:13:27,,SUMMARY,4,Biblioteca_UDEM,HaarCascade-Face,Fin de sesión
