@@ -2,3 +2,7 @@ ls /dev/ttyUSB* --- revisar puerto usb arduino; usualmente el * seria 0 o 1
 ls /dev/video* --- revisar puerto de camara; usualmente el * seria 0 o 1
 
 ffplay /dev/video* ---- reemplazar * por camara a intentar cehcar 
+
+
+// matar proceso (puerto 50000): 
+sudo kill -9 $(sudo lsof -t -i :50000)

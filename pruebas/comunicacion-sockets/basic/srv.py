@@ -27,7 +27,7 @@ srv_vid.bind((HOST, VIDEO_PORT))
 srv_vid.listen(1)
 print(f"[SERVIDOR] Video en {HOST}:{VIDEO_PORT}")
 
-conn_vid,  addr_v = srv_vid .accept()
+conn_vid,  addr_v = srv_vid.accept()
 print(f"[SERVIDOR] Video conectado:   {addr_v}")
 
 
