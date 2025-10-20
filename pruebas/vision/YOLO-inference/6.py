@@ -6,6 +6,14 @@ import numpy as np
 import serial
 import time
 
+import socket
+import threading
+import pickle
+import struct
+import time
+import cv2
+import traceback
+
 from datetime import datetime
 import subprocess
 
@@ -23,6 +31,30 @@ prev_time = time.time()
 fps = 0
 max_inliers = 1  # para calcular el ratio
 font = cv2.FONT_HERSHEY_SIMPLEX
+
+
+# — Flags y estado —
+camera_on    = False
+ultra_on     = False
+temp_on      = False
+saving_temp  = False
+server_run   = True
+cam          = None
+
+# — Configuración de sockets —
+HOST       = '0.0.0.0'
+VIDEO_PORT = 50000
+
+srv_vid = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+srv_vid.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+
+srv_vid.bind((HOST, VIDEO_PORT))
+srv_vid.listen(1)
+print(f"[SERVIDOR] Video en {HOST}:{VIDEO_PORT}")
+
+conn_vid,  addr_v = srv_vid.accept()
+print(f"[SERVIDOR] Video conectado:   {addr_v}")
+
 
 
 def getRectArea(x1, y1, x2, y2):
@@ -96,9 +128,9 @@ while True:
 	#annotated_frame= frame.copy()
 
     # Calcular número de “inliers” (áreas azules detectadas)
-	inliers = len(contours)
-	max_inliers = max(max_inliers, inliers)
-	inlier_ratio = inliers / max_inliers if max_inliers > 0 else 0
+	#inliers = len(contours)
+	"""max_inliers = max(max_inliers, inliers)
+	inlier_ratio = inliers / max_inliers if max_inliers > 0 else 0"""
 
 	# Dibujar líneas verticales en xd1 y xd2
 	cv2.line(annotated_frame, (xd1, 0), (xd1, h), (0, 0, 255), 2)
@@ -132,11 +164,18 @@ while True:
 	 # ===============================
     # HUD (Heads-Up Display)
     # ===============================
-	cv2.putText(frame, f"Estado: Lab Robotica", (10, 30), font, 0.7, color_status, 2)
-	cv2.putText(frame, f"FPS: {fps:.1f}", (10, 60), font, 0.7, (255, 255, 0), 2)
-	cv2.putText(frame, f"Inliers: {inliers}", (10, 90), font, 0.7, (0, 255, 0), 2)
-	cv2.putText(frame, f"Inlier Ratio: {inlier_ratio:.2f}", (10, 120), font, 0.7, (255, 0, 255), 2)
-	cv2.imshow("YOLO Inference", annotated_frame)
+	#cv2.putText(annotated_frame, f"Estado: Lab Robotica", (10, 30), font, 0.7, color_status, 2)
+	cv2.putText(annotated_frame, f"FPS: {fps:.1f}", (10, 60), font, 0.7, (255, 255, 0), 2)
+	#cv2.putText(annotated_frame, f"Inliers: {inliers}", (10, 90), font, 0.7, (0, 255, 0), 2)
+	#cv2.putText(annotated_frame, f"Inlier Ratio: {inlier_ratio:.2f}", (10, 120), font, 0.7, (255, 0, 255), 2)
+	#cv2.imshow("YOLO Inference", annotated_frame)
+	_, encimg = cv2.imencode('.jpg', annotated_frame, [int(cv2.IMWRITE_JPEG_QUALITY), 70])
+	data = encimg.tobytes()
+	try:
+		conn_vid.sendall(struct.pack("Q", len(data)) + data)
+	except Exception as e:
+		print("Error enviando frame:", e)
+		break
 	key = cv2.waitKey(1) & 0xFF
 	if key == ord('q'):
 		# Enviar comando de parada y volver al modo inactivo
