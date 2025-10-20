@@ -41,8 +41,11 @@ while True:
     else:
         _, encimg = cv2.imencode('.jpg', frame, [int(cv2.IMWRITE_JPEG_QUALITY), 70])
         data = encimg.tobytes()
-        conn_vid.sendall(struct.pack("Q", len(data)) + data)
+        try:
+            conn_vid.sendall(struct.pack("Q", len(data)) + data)
+        except Exception as e:
+            print("Error enviando frame:", e)
+            break
         if cv2.waitKey(1) & 0xFF == ord('q'):
             cap.release()
             break
-    
