@@ -121,7 +121,10 @@ while True:
 	h, w, _ = frame.shape
 	xd1 = w//3
 	xd2 = 2 * w // 3
-	contornos, _ = cv2.findContours(mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+	
+    blur = cv2.GaussianBlur(frame, (9,9), 0)    
+    hsv = cv2.cvtColor(blur, cv2.COLOR_BGR2HSV)
+    contornos, _ = cv2.findContours(mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
     #for cnt in contornos:
 	# Inferencia YOLOv8 (sin verbose)
 	results = model(frame, verbose=False)
