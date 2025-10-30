@@ -65,6 +65,7 @@ numImgsGuardadas = 0; captured_image = None
 while True: 
     timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
     _, imageFrame = webcam.read()
+    imageFrame = cv2.resize(imageFrame, None, fx=0.7, fy=0.7)
     
     # Convert to HSV color space
     hsvFrame = cv2.cvtColor(imageFrame, cv2.COLOR_BGR2HSV) 
