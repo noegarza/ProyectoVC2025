@@ -61,7 +61,7 @@ max_contour = None; max_color = None;
 max_color_name = None; max_bounding_rect = None
 
 numImgsGuardadas = 0; captured_image = None
-
+ctr = 0
 while True: 
     timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
     _, imageFrame = webcam.read()
@@ -130,7 +130,7 @@ while True:
     """arduino.write(comando.encode())  # Envía el comando
     print("Arduino:", max_color_name)"""
 
-
+    
     """if prev_color is not max_color_name and max_color_name is not None and estamosHaciendoPruebas is False:
 
         print("Color diferente detectado!")
