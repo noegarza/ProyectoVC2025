@@ -1,0 +1,12 @@
+names:
+- Paddles
+nc: 1
+roboflow:
+  license: CC BY 4.0
+  project: etiquetado-haptic-paddle-jry5s
+  url: https://universe.roboflow.com/alex4/etiquetado-haptic-paddle-jry5s/dataset/2
+  version: 2
+  workspace: alex4
+test: ../test/images
+train: ../train/images
+val: ../valid/images

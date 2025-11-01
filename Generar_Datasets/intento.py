@@ -25,7 +25,7 @@ def extraer_frames(video_path, output_folder, intervalo=1):
     print(f"Total de frames: {total_frames}")
     
     frame_count = 0
-    saved_count = 130
+    saved_count = 140
     
     while True:
         success, frame = video.read()
@@ -48,11 +48,11 @@ def extraer_frames(video_path, output_folder, intervalo=1):
     print(f"\n¡Listo! Se guardaron {saved_count} frames en '{output_folder}'")
 
 # Uso
-video_path = "C:/Users/Usuario/Downloads/20251030_170351.mp4"
-output_folder = "frames_extraidos_haptic_13"
+video_path = "C:/Users/Usuario/Downloads/chave.mp4"
+output_folder = "frames_extraidos_haptic_14"
 
 # Extraer todos los frames
-extraer_frames(video_path, output_folder, intervalo=11)
+extraer_frames(video_path, output_folder, intervalo=15)
 
 # O si quieres exactamente 100 frames distribuidos uniformemente:
 """def extraer_n_frames(video_path, output_folder, n_frames=0.1):
