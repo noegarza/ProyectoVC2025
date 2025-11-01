@@ -10,6 +10,15 @@ Código creado en colaboración con IA generativa
 import os
 
 
+"""
+Modifica el label de una clase en un archivo de etiquetas YOLO.
+Lee el archivo de texto especificado, busca todas las líneas donde el primer elemento (label)
+coincide con old_label y lo reemplaza por new_label. Escribe los cambios en el mismo archivo.
+Args:
+    txt_file_path (str): Ruta al archivo de etiquetas (.txt) a modificar.
+    old_label (int or str): Label original que se desea cambiar.
+    new_label (int or str): Nuevo label que reemplazará al original.
+"""
 def setLabelInFile(txt_file_path, old_label, new_label):
     with open(txt_file_path, 'r') as file:
         lines = file.readlines()
@@ -22,6 +31,13 @@ def setLabelInFile(txt_file_path, old_label, new_label):
             file.write(' '.join(parts))
 
 
+"""
+Modifica la label en cada archivo .txt en un directorio dado.
+Args:
+    directory_path (str): Ruta al directorio que contiene los archivos .txt.
+    old_label (int or str): Label original que se desea cambiar.
+    new_label (int or str): Nuevo label que reemplazará al original.
+"""
 def modifyLabelsInDirectory(directory_path, old_label, new_label):
     for filename in os.listdir(directory_path):
         if filename.endswith('.txt'):
