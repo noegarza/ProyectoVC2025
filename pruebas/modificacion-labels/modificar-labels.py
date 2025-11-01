@@ -19,7 +19,7 @@ def setLabelInFile(txt_file_path, old_label, new_label):
             parts = line.strip().split()
             if parts[0] == str(old_label):
                 parts[0] = str(new_label)
-            file.write(' '.join(parts) + '\n')
+            file.write(' '.join(parts))
 
 
 def modifyLabelsInDirectory(directory_path, old_label, new_label):
@@ -30,14 +30,15 @@ def modifyLabelsInDirectory(directory_path, old_label, new_label):
 
 
 def main():
-
-    print(os.getcwd())
-
-    """train_Path = "Etiquetado-Haptic-Paddle-2/train/labels"
-    train_Path = "Etiquetado-Haptic-Paddle-2/train/labels"
-    train_Path = "Etiquetado-Haptic-Paddle-2/train/labels"
+    train_Path = "dir-con-labels-prueba/train/labels"
+    test_Path = "dir-con-labels-prueba/test/labels"
+    valid_Path = "dir-con-labels-prueba/valid/labels"
     old_label = 0  # Label a cambiar
-    new_label = 1  # Nuevo label"""
+    new_label = 1  # Nuevo label
+
+    modifyLabelsInDirectory(train_Path, old_label, new_label)
+    modifyLabelsInDirectory(test_Path, old_label, new_label)
+    modifyLabelsInDirectory(valid_Path, old_label, new_label)
 
 
 if __name__ == "__main__":
