@@ -49,8 +49,8 @@ def main():
     train_Path = "DINOSAURS-LABELING-2/train/labels"
     test_Path = "DINOSAURS-LABELING-2/test/labels"
     valid_Path = "DINOSAURS-LABELING-2/valid/labels"
-    old_label = 0  # Label a cambiar
-    new_label = 2  # Nuevo label
+    old_label = 1  # Label a cambiar
+    new_label = 0  # Nuevo label
 
     modifyLabelsInDirectory(train_Path, old_label, new_label)
     modifyLabelsInDirectory(test_Path, old_label, new_label)
