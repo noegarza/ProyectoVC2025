@@ -6,23 +6,26 @@ import time
 import os
 import pandas as pd
 from datetime import datetime
+import numpy as np
 
 # Parámetros YOLO
-model_path = "modelos-YOLO-parcial3/v8n-640-50/weights/last.pt"
+model_path = "modelos-YOLO-parcial3/v8n-640xd-50/weights/last.pt"
 model = YOLO(model_path)
 
 # Parámetros de cálculo de FPS
-usandoYOLO = True
-prevFrameTime = 0
+USANDO_YOLO = False
+prevFrameTime = time.time()
 newFrameTime = 0
+ctr = 0; allFPS = []
+FRAME_RATIO = 100 # agregar fps a fps global cada n frame
 
 # Parámetros visualización
-cap = cv2.VideoCapture(0)
-imageSize = 1.5 # tamaño del frame a visualizar
+CAP = cv2.VideoCapture(0)
+IMAGE_SIZE = 1 # tamaño del frame a visualizar
 
 # Guardar evidencias
-timeStamp = datetime.now().strftime('%Y-%m-%d_%H-%M-%S') # las minusculas se usan para la fecha y las mayusculas para horas!
-resultsPath = os.path.join(os.getcwd(), #asumiendo que root dir es el repo.
+TIME_STAMP = datetime.now().strftime('%Y-%m-%d_%H-%M-%S') # las minusculas se usan para la fecha y las mayusculas para horas!
+RESULTS_PATH = os.path.join(os.getcwd(), #asumiendo que root dir es el repo.
                          'pruebas',
                          'vision',
                          'YOLO-inference',
@@ -71,12 +74,13 @@ def forward():
 def stop():
 	print("detenerse")
 
-def getInference_frame_boxes(imgFrame):
-	global usandoYOLO
-	if usandoYOLO:
+def getInference_frame_boxes_pred(imgFrame):
+	global USANDO_YOLO
+	if USANDO_YOLO:
 		prediction = model(imgFrame, verbose=False)
 		predictionBoxes = prediction[0].boxes
 		annotatedFrame = prediction[0].plot()
+
 	else:
 		predictionBoxes = []
 		annotatedFrame = imgFrame
@@ -87,21 +91,20 @@ def getInference_frame_boxes(imgFrame):
 
 # Loop principal -----------------------------------------------------------------------
 while True:
-	ret, frame = cap.read()
+	ret, frame = CAP.read()
 	if not ret:
 		break
-
-	fps = getFPS()
+	ctr += 1
+	fps = getFPS()	
+	if ctr % 100 == 0: allFPS.append(fps)
+	frame = cv2.resize(frame, None, fx=IMAGE_SIZE, fy=IMAGE_SIZE)
+	annotatedFrame, predictionBoxes, prediction = getInference_frame_boxes_pred(frame)
 	
-	frame = cv2.resize(frame, None, fx=imageSize, fy=imageSize)
-
-	annotatedFrame, predictionBoxes, prediction = getInference_frame_boxes(frame)
-	
-	h, w, _ = frame.shape
+	"""h, w, _ = frame.shape
 	xCoordL = w//3
 	xCoordR = 2*w//3
 	x1, y1, x2, y2 = getGreatestBoxCords(predictionBoxes)
-	"""if None not in (x1, y1, x2, y2):
+	if None not in (x1, y1, x2, y2):
 		xCenter = (x1+x2)//2
 		if xCenter < xCoordL: left()
 		elif xCenter > xCoordR: right()
@@ -110,27 +113,27 @@ while True:
 		stop()"""
 	
 	# HUD
-	cv2.line(annotatedFrame, (xCoordL, 0), (xCoordL, h), (0, 0, 255), 2)
-	cv2.line(annotatedFrame, (xCoordR, 0), (xCoordR, h), (0, 0, 255), 2)
+	#cv2.line(annotatedFrame, (xCoordL, 0), (xCoordL, h), (0, 0, 255), 2)
+	#cv2.line(annotatedFrame, (xCoordR, 0), (xCoordR, h), (0, 0, 255), 2)
 	cv2.imshow("YOLO Inference", annotatedFrame)
 	if cv2.waitKey(1) & 0xFF == ord('q'):
-		
+		meanFPS = np.median(allFPS)
 		newResult = pd.DataFrame({
-			"time stamp": [timeStamp],
-			"Se usó YOLO?": [usandoYOLO],
-			"FPS": [round(fps, 2)]
+			"time stamp": [TIME_STAMP],
+			"Se usó YOLO?": [USANDO_YOLO],
+			"FPS": [round(meanFPS, 2)]
 		})
 		
 		# Si el archivo existe, concatenar; si no, crearlo
-		if os.path.exists(resultsPath):
-			old_df = pd.read_csv(resultsPath)
+		if os.path.exists(RESULTS_PATH):
+			old_df = pd.read_csv(RESULTS_PATH)
 			df = pd.concat([old_df, newResult], ignore_index=True)
 		else:
 			df = newResult
-		df.to_csv(resultsPath, index=False)
+		df.to_csv(RESULTS_PATH, index=False)
 		
 		break
 
-cap.release()
+CAP.release()
 cv2.destroyAllWindows()
 
