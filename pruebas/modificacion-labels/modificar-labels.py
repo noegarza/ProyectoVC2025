@@ -46,11 +46,11 @@ def modifyLabelsInDirectory(directory_path, old_label, new_label):
 
 
 def main():
-    train_Path = "Etiquetado-Haptic-Paddle-2/train/labels"
-    test_Path = "Etiquetado-Haptic-Paddle-2/test/labels"
-    valid_Path = "Etiquetado-Haptic-Paddle-2/valid/labels"
+    train_Path = "DINOSAURS-LABELING-2/train/labels"
+    test_Path = "DINOSAURS-LABELING-2/test/labels"
+    valid_Path = "DINOSAURS-LABELING-2/valid/labels"
     old_label = 0  # Label a cambiar
-    new_label = 1  # Nuevo label
+    new_label = 2  # Nuevo label
 
     modifyLabelsInDirectory(train_Path, old_label, new_label)
     modifyLabelsInDirectory(test_Path, old_label, new_label)
