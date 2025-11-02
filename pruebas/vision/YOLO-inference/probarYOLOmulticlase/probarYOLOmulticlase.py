@@ -8,7 +8,7 @@ import pandas as pd
 from datetime import datetime
 
 # Parámetros YOLO
-model_path = "modelos-YOLO-parcial3/v8n-640-50/weights/last.pt"
+model_path = "modelos-YOLO-parcial3/v8n-640-50/weights/best.pt"
 model = YOLO(model_path)
 
 # Parámetros de cálculo de FPS
@@ -80,8 +80,7 @@ def getInference_frame_boxes(imgFrame):
 	else:
 		predictionBoxes = []
 		annotatedFrame = imgFrame
-		prediction = None
-	return annotatedFrame, predictionBoxes, prediction
+	return annotatedFrame, predictionBoxes
 
 
 
@@ -95,20 +94,19 @@ while True:
 	
 	frame = cv2.resize(frame, None, fx=imageSize, fy=imageSize)
 
-	annotatedFrame, predictionBoxes, prediction = getInference_frame_boxes(frame)
+	annotatedFrame, predictionBoxes = getInference_frame_boxes(frame)
 	
 	h, w, _ = frame.shape
 	xCoordL = w//3
-	xCoordR = 2*w//3
+	xCoordR = 2 * w // 3
 	x1, y1, x2, y2 = getGreatestBoxCords(predictionBoxes)
-	print(prediction)
-	"""if None not in (x1, y1, x2, y2):
+	if None not in (x1, y1, x2, y2):
 		xCenter = (x1+x2)//2
 		if xCenter < xCoordL: left()
 		elif xCenter > xCoordR: right()
 		else: forward()
 	else:
-		stop()"""
+		stop()
 	
 	# HUD
 	cv2.line(annotatedFrame, (xCoordL, 0), (xCoordL, h), (0, 0, 255), 2)
