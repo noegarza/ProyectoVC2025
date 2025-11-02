@@ -1,0 +1,14 @@
+names:
+- dino
+- eje
+- haptic
+nc: 3
+roboflow:
+  license: CC BY 4.0
+  project: v2-axis-haptic-dino-x8w6i
+  url: https://universe.roboflow.com/amaro27/v2-axis-haptic-dino-x8w6i/dataset/3
+  version: 3
+  workspace: amaro27
+test: ../test/images
+train: ../train/images
+val: ../valid/images
