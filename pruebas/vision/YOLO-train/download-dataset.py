@@ -1,7 +1,7 @@
 from roboflow import Roboflow
 import os
 rf = Roboflow(api_key="")
-project = rf.workspace("alex4").project("dinosaurs-labeling-dbolz")
+project = rf.workspace("amaro27").project("v2-axis-haptic-dino-x8w6i")
 version = project.version(1)
 
-dataset = version.download("yolov8")
+dataset = version.download("yolov8", location="datasets")
