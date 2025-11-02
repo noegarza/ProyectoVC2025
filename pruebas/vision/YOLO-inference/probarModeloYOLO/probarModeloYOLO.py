@@ -12,7 +12,7 @@ model_path = "modelos-YOLO-parcial3/v8n-640-50/weights/last.pt"
 model = YOLO(model_path)
 
 # Parámetros de cálculo de FPS
-usandoYOLO = False
+usandoYOLO = True
 prevFrameTime = 0
 newFrameTime = 0
 
@@ -101,7 +101,6 @@ while True:
 	xCoordL = w//3
 	xCoordR = 2*w//3
 	x1, y1, x2, y2 = getGreatestBoxCords(predictionBoxes)
-	print(prediction)
 	"""if None not in (x1, y1, x2, y2):
 		xCenter = (x1+x2)//2
 		if xCenter < xCoordL: left()
