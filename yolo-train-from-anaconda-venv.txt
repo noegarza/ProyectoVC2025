@@ -33,7 +33,7 @@ yolo {
 
 Prompt: "pon todo lo que está dentro del {} de yolo en una sola línea. es parte de usar YOLO desde la CLI, de modo que después de la palabra yolo, lo que le siguen son parejas key=value, y cada pareja está separada por un solo espacio"
 
-yolo task=detect mode=train model=yolov8n.pt data=C:\Users\joabl\OneDrive\Documentos\GitHub\ProyectoVC2025\v2-axis-haptic-dino-4\data.yaml epochs=50 patience=5 batch=0.7 imgsz=640 save=True save_period=5 device=0 project=C:\Users\joabl\OneDrive\Documentos\GitHub\ProyectoVC2025\modelos-YOLO-parcial3 name=v8n-640-50-aug-rgb- optimizer=AdamW lr0=0.0005 seed=0 deterministic=False cos_lr=True cls=1 dropout=0.5 plots=True
+yolo task=detect mode=train model=yolov8n.pt data=C:\Users\joabl\OneDrive\Documentos\GitHub\ProyectoVC2025\v2-axis-haptic-dino-5\data.yaml epochs=50 patience=5 batch=0.7 imgsz=640 save=True save_period=5 device=0 project=C:\Users\joabl\OneDrive\Documentos\GitHub\ProyectoVC2025\modelos-YOLO-parcial3 name=v8n-640-50-aug-rgb-gray- optimizer=AdamW lr0=0.0005 seed=0 deterministic=False cos_lr=True cls=1 dropout=0.5 plots=True
 
 from pre-trained model:
 

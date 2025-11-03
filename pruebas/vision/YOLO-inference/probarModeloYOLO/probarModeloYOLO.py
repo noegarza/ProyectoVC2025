@@ -9,7 +9,7 @@ from datetime import datetime
 import numpy as np
 
 # Parámetros YOLO
-model_path = "modelos-YOLO-parcial3/v8n-640-50-aug-rgb-3/weights/best.pt"
+model_path = "modelos-YOLO-parcial3/v8n-640-50-aug-rgb-gray-2/weights/best.pt"
 model = YOLO(model_path)
 
 # Parámetros de cálculo de FPS
