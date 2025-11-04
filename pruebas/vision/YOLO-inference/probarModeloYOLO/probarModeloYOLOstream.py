@@ -77,9 +77,10 @@ def stop():
 def getInference_frame_boxes_pred(imgFrame):
 	global USANDO_YOLO
 	if USANDO_YOLO:
-		prediction = model(imgFrame, verbose=False, conf=0.83)
-		predictionBoxes = prediction[0].boxes
-		annotatedFrame = prediction[0].plot()
+		prediction_stream = model(imgFrame, verbose=False, stream=True)
+		prediction = next(prediction_stream)
+		predictionBoxes = prediction.boxes
+		annotatedFrame = prediction.plot()
 
 	else:
 		predictionBoxes = []
