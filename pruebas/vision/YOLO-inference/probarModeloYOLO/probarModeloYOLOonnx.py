@@ -2,6 +2,7 @@
 Veamos FPS:
 
 En win: 23.32
+En vm: 7.8
 """
 
 # en colab con gen AI
