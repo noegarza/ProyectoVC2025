@@ -169,7 +169,7 @@ while True:
 	#cv2.putText(annotated_frame, f"Inliers: {inliers}", (10, 90), font, 0.7, (0, 255, 0), 2)
 	#cv2.putText(annotated_frame, f"Inlier Ratio: {inlier_ratio:.2f}", (10, 120), font, 0.7, (255, 0, 255), 2)
 	#cv2.imshow("YOLO Inference", annotated_frame)
-	annotated_frame = cv2.cvtColor(annotated_frame, cv2.COLOR_BGR2GRAY)
+	#annotated_frame = cv2.cvtColor(annotated_frame, cv2.COLOR_BGR2GRAY)
 	_, encimg = cv2.imencode('.jpg', annotated_frame, [int(cv2.IMWRITE_JPEG_QUALITY), 70])
 	data = encimg.tobytes()
 	try:
