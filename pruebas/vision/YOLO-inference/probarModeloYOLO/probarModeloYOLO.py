@@ -13,7 +13,7 @@ model_path = "modelos-YOLO-parcial3/v8n-640-50-aug-rgb-gray-reb-blur-2/weights/b
 model = YOLO(model_path)
 
 # Parámetros de cálculo de FPS
-USANDO_YOLO = False
+USANDO_YOLO = True
 prevFrameTime = time.time()
 newFrameTime = 0
 ctr = 0; allFPS = []
