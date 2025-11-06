@@ -121,6 +121,8 @@ while True:
 	h, w, _ = frame.shape
 	xd1 = w//3
 	xd2 = 2 * w // 3
+	contornos, _ = cv2.findContours(mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+    #for cnt in contornos:
 	# Inferencia YOLOv8 (sin verbose)
 	results = model(frame, verbose=False)
 	# Mostrar resultados en ventana

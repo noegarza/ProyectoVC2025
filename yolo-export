@@ -1,0 +1,13 @@
+para exportar a ncnn se tuvo que correr desde el conda venv:
+
+pip install onnx
+pip install onnxslim
+pip install ncnn
+
+mientras corría el comando de arriba se instaló aparte otra cosa.
+
+ademas ya contaba con haber corrido:
+
+pip install onnxruntime
+
+eso porque, precisamente, ya habia instalado con pip el de runtime, entonces los demás tmb los instale con pip, no con conda
