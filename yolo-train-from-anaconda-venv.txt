@@ -14,7 +14,7 @@ yolo {
     epochs=10 
     patience=5
     batch=0.7
-    imgsz=640 -- realmente uno menor a este no jala. 
+    imgsz=640 -- se pudo probar menores tamaños gracias al aumento de datos. 
     save=True
     save_period=1
     device=0
@@ -39,8 +39,14 @@ v11:
 
 yolo task=detect mode=train model=yolo11n.pt data=C:\Users\joabl\OneDrive\Documentos\GitHub\ProyectoVC2025\v2-axis-haptic-dino-7\data.yaml epochs=50 patience=10 batch=0.5 imgsz=640 save=True save_period=5 device=0 project=C:\Users\joabl\OneDrive\Documentos\GitHub\ProyectoVC2025\modelos-YOLO-parcial3 name=v11n-640-50-aug-rgb-gray-reb-blur- optimizer=AdamW lr0=0.0005 seed=0 deterministic=False cos_lr=True cls=1 dropout=0.5 plots=True
 
+v11 480:
+
+yolo task=detect mode=train model=yolo11n.pt data=C:\Users\joabl\OneDrive\Documentos\GitHub\ProyectoVC2025\v2-axis-haptic-dino-7\data.yaml epochs=50 patience=10 batch=0.5 imgsz=480 save=True save_period=5 device=0 project=C:\Users\joabl\OneDrive\Documentos\GitHub\ProyectoVC2025\modelos-YOLO-parcial3 name=v11n-480-50-aug-rgb-gray-reb-blur- optimizer=AdamW lr0=0.0005 seed=0 deterministic=False cos_lr=True cls=1 dropout=0.5 plots=True
+
 from pre-trained model:
 
 yolo task=detect mode=train model=C:\Users\joabl\OneDrive\Documentos\GitHub\ProyectoVC2025\modelos-YOLO-parcial3\v8n-640-50-aug-rgb-\weights\best.pt data=C:\Users\joabl\OneDrive\Documentos\GitHub\ProyectoVC2025\v2-axis-haptic-dino-4\data.yaml epochs=50 patience=10 batch=0.6 imgsz=640 save=True save_period=5 device=0 project=C:\Users\joabl\OneDrive\Documentos\GitHub\ProyectoVC2025\modelos-YOLO-parcial3 name=v8n-640-50-aug-rgb- optimizer=AdamW lr0=0.00005 seed=0 deterministic=False cos_lr=True cls=1 dropout=0.5 plots=True pretrained=True
 
 yolo task=detect mode=train model=C:\Users\joabl\OneDrive\Documentos\GitHub\ProyectoVC2025\modelos-YOLO-parcial3\v11n-640-50-aug-rgb-gray-reb-blur-\weights\best.pt data=C:\Users\joabl\OneDrive\Documentos\GitHub\ProyectoVC2025\v2-axis-haptic-dino-7\data.yaml epochs=100 patience=10 batch=0.5 imgsz=640 save=True save_period=5 device=0 project=C:\Users\joabl\OneDrive\Documentos\GitHub\ProyectoVC2025\modelos-YOLO-parcial3 name=v11n-640-50-aug-rgb-gray-reb-blur- optimizer=AdamW lr0=0.00005 seed=0 deterministic=False cos_lr=True cls=1 dropout=0.5 plots=True pretrained=True
+
+yolo task=detect mode=train model=C:\Users\joabl\OneDrive\Documentos\GitHub\ProyectoVC2025\modelos-YOLO-parcial3\v11n-320-50-aug-rgb-gray-reb-blur-\weights\best.pt data=C:\Users\joabl\OneDrive\Documentos\GitHub\ProyectoVC2025\v2-axis-haptic-dino-7\data.yaml epochs=100 patience=10 batch=0.5 imgsz=320 save=True save_period=5 device=0 project=C:\Users\joabl\OneDrive\Documentos\GitHub\ProyectoVC2025\modelos-YOLO-parcial3 name=v11n-320-50-aug-rgb-gray-reb-blur- optimizer=AdamW lr0=0.00005 seed=0 deterministic=False cos_lr=True cls=1 dropout=0.5 plots=True pretrained=True
