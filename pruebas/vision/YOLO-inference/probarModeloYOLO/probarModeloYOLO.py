@@ -9,6 +9,15 @@ en vm sin hacer inferencia y midiendo FPS cada 100 frames
 
 - 15.88 FPS???
 
+en rpi sin hacer inferencia y midiendo FPS:
+
+- 25 fps
+
+en rpi con v11 con inferenecia cada 10:
+
+- 640: 
+
+
 v11n en vm haciendo inferencia cada 10 frames y plots y midiendo FPS cada frame
 
 - 640: 15.24 FPS
@@ -40,7 +49,7 @@ from datetime import datetime
 import numpy as np
 
 # Parámetros YOLO
-model_path = "modelos-YOLO-parcial3/v11n-640-50-aug-rgb-gray-reb-blur-2/weights/best.pt"
+model_path = "modelos-YOLO-parcial3/v11n-320-50-aug-rgb-gray-reb-blur-2/weights/best.pt"
 model = YOLO(model_path)
 
 # Parámetros de cálculo de FPS
