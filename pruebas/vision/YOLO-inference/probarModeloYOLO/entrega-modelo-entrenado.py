@@ -93,7 +93,7 @@ while True:
 	# HUD
 	cv2.imshow("YOLO Inference", frame)
 	if cv2.waitKey(1) & 0xFF == ord('q'):
-		meanFPS = np.median(allFPS)
+		meanFPS = np.mean(allFPS)
 		newResult = pd.DataFrame({
 			"time stamp": [TIME_STAMP],
 			"Se usó YOLO?": [USANDO_YOLO],
