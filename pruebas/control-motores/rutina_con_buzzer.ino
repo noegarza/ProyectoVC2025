@@ -121,6 +121,17 @@ void setup() {
 }
 
 void loop() {
+  if (!iniciado) {
+    if (Serial.available() > 0) {
+      char comando = Serial.read();
+      if (comando == 'e') {
+        iniciado = true;
+        detener();
+        Serial.println("Ejecución iniciada");
+      }
+    }
+    return; // mientras no inicie, no hacer nada más
+  }
   int vel = 150; // Velocidad base (0-255)
   
   
@@ -172,4 +183,13 @@ void loop() {
   detenerseSiHayObstaculo();
   detener();
   delay(1000);
+
+  if (Serial.available() > 0) {
+      char comando = Serial.read();
+      if (comando == 'x') {
+        detener();
+        iniciado = false;  // vuelve al modo de espera
+        Serial.println("Ejecución detenida");
+      }
+    }
 }
