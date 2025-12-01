@@ -16,10 +16,12 @@ import subprocess
 import os
 import pandas as pd
 
+clasesPorEncontrar = ["eje", "dino", "haptic"]
+clasesEncontradas = []
 # ===========================================
 # INICIALIZAR ARDUINO
 # ===========================================
-arduino = serial.Serial('/dev/ttyUSB0', 115200, timeout=1)
+arduino = serial.Serial('/dev/ttyUSB0', 9600, timeout=1)
 time.sleep(2)
 
 comando = 'e'  # comando inicial
@@ -29,7 +31,7 @@ print("programa principal iniciado")
 # ===========================================
 # CARGAR MODELO YOLO
 # ===========================================
-model_path = "modelos-YOLO-parcial3/v11n-320-50-aug-rgb-gray-reb-blur-2/weights/best.pt"
+model_path = "modelos-YOLO-parcial3/v11n-640-50-aug-rgb-gray-reb-blur-2/weights/best.pt"
 model = YOLO(model_path)
 
 # ===========================================
@@ -66,30 +68,29 @@ def getFPS():
     prevFrameTime = newFrameTime
     return fps
 
-def getRectArea(x1, y1, x2, y2):
-    return (x2 - x1) * (y2 - y1)
+def subirImagenes(clase,score,img):
+    timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")            
+    filename = f"{timestamp}__{clase}__{score}__LabRobotica.jpg"
+    cv2.imwrite(filename, img)
 
-def getGreatestBoxCords(predictionBoxes):
-    greatestArea = 0
-    best_coords = None
-    if predictionBoxes is not None and len(predictionBoxes) > 0:
-        for box in predictionBoxes:
-            xyxy = box.xyxy[0].cpu().numpy()
-            x1, y1, x2, y2 = xyxy
-            rectArea = getRectArea(x1, y1, x2, y2)
-            if rectArea > greatestArea:
-                greatestArea = rectArea
-                best_coords = (x1, y1, x2, y2)
-    if best_coords is not None:
-        return best_coords
-    else:
-        return None, None, None, None
+    subprocess.Popen(["rclone", "copy", filename, "vc:/imgs_colores/"])
+    print("Subido a Drive:", filename)
 
 def getInference_frame_boxes_pred(imgFrame):
+    global model, clasesPorEncontrar, clasesEncontradas
     if USANDO_YOLO:
-        prediction = model(imgFrame, verbose=False, conf=0.75)
+        prediction = model(imgFrame, verbose=False, conf=0.83)
         predictionBoxes = prediction[0].boxes
         frame = prediction[0].plot()
+
+        if len(predictionBoxes) > 0:
+            clase = int(predictionBoxes[0].cls.cpu().numpy()[0])   # ← número
+            score = round(float(predictionBoxes[0].conf.cpu().numpy()[0]), 3)
+            nombreClase = model.names[clase]    
+            if nombreClase not in clasesEncontradas:
+                subirImagenes(nombreClase, score, frame)
+                clasesEncontradas.append(nombreClase)
+                clasesPorEncontrar.remove(nombreClase)
     else:
         predictionBoxes = []
         frame = imgFrame
@@ -115,12 +116,15 @@ while True:
         frame, predictionBoxes, prediction = getInference_frame_boxes_pred(frame)
 
     # Mostrar
+    
+    # Mostrar FPS en el frame
+    fps_text = f"FPS: {fps:.2f}"
+    cv2.putText(frame, fps_text, (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0, 255, 0), 2, cv2.LINE_AA)
     cv2.imshow("YOLO Inference", frame)
-
     # Salir con Q
-    if cv2.waitKey(1) & 0xFF == ord('q'):
+    if (cv2.waitKey(1) & 0xFF == ord('q')) or not clasesPorEncontrar:
 
-        meanFPS = np.median(allFPS)
+        meanFPS = np.mean(allFPS)
 
         newResult = pd.DataFrame({
             "time stamp": [TIME_STAMP],
