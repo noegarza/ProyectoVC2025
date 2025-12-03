@@ -1,16 +1,15 @@
 import numpy as np 
 import cv2
-#import serial
+
 import time
 import matplotlib.pyplot as plt
 from datetime import datetime
-import subprocess
+
 import os
 
 # parámetros a ajustar
 estamosHaciendoPruebas = True # para que no guarde fotos en drive al hacer pruebas
 webcam = cv2.VideoCapture(0)
-
 
 # auxiliares
 time.sleep(2)  # Esperar a que Arduino reinicie
@@ -42,14 +41,6 @@ blue_upper = np.array([130, 255, 255], np.uint8)
 white_lower = np.array([0, 0, 210], np.uint8) # prev: [0, 0, 210]
 white_upper = np.array([180, 15, 255], np.uint8)
 
-"""
-processing stuff:
-
-    beforeProcessing = time.time()
-    afterProcessing = time.time()
-    processingTime = afterProcessing - beforeProcessing
-    print(f"Processing time before changing mask stuff: {processingTime}")
-"""
 
 # Operaciones morfológicas
 MORPH_KERNEL = np.ones((5, 5), "uint8") 

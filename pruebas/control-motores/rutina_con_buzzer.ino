@@ -25,6 +25,7 @@ bool iniciado = false;
 int difVel = 10;
 int tGiroMs = 800;
 long distancia;
+const int tiempoAvance = 200;
 
 // --- Funciones de control ---
 void motorControl(int EN, int INa, int INb, int velocidad, bool adelante) {
@@ -145,19 +146,19 @@ void loop() {
   }
 
   adelante(vel);
-  delay(400);
+  delay(tiempoAvance);
   detenerseSiHayObstaculo();
   adelante(vel);
-  delay(400);
+  delay(tiempoAvance);
   detenerseSiHayObstaculo();
   adelante(vel);
-  delay(400);
+  delay(tiempoAvance);
   detenerseSiHayObstaculo();
   adelante(vel);
-  delay(400);
+  delay(tiempoAvance);
   detenerseSiHayObstaculo();
   adelante(vel);
-  delay(400);
+  delay(tiempoAvance);
   detenerseSiHayObstaculo();
   detener();
   delay(1000);
@@ -171,15 +172,15 @@ void loop() {
   }
 
   adelante(vel);
-  delay(400);
+  delay(tiempoAvance);
   detenerseSiHayObstaculo();adelante(vel);
-  delay(400);
+  delay(tiempoAvance);
   detenerseSiHayObstaculo();adelante(vel);
-  delay(400);
+  delay(tiempoAvance);
   detenerseSiHayObstaculo();adelante(vel);
-  delay(400);
+  delay(tiempoAvance);
   detenerseSiHayObstaculo();adelante(vel);
-  delay(400);
+  delay(tiempoAvance);
   detenerseSiHayObstaculo();
   detener();
   delay(1000);
