@@ -44,7 +44,7 @@ white_upper = np.array([180, 15, 255], np.uint8)
 
 # Operaciones morfológicas
 MORPH_KERNEL = np.ones((5, 5), "uint8") 
-RED_IT = 8; GREEN_IT = 13; BLUE_IT = 4; WHITE_IT = 5 # número de veces que se hace CIERRE por cada máscara
+RED_IT = 10; GREEN_IT = 13; BLUE_IT = 10; WHITE_IT = 3 # número de veces que se hace CIERRE por cada máscara
 
 # Store contours and their metadata
 max_area = 1000  # Minimum area threshold
@@ -59,7 +59,6 @@ while True:
     imageFrame = cv2.resize(imageFrame, None, fx=0.7, fy=0.7)
     
     # Convert to HSV color space
-    hsvFrame = cv2.cvtColor(imageFrame, cv2.COLOR_BGR2HSV) 
     
     # crear máscaras binarias con el frame
     red_mask1 = cv2.inRange(hsvFrame, red_lower1, red_upper1)
@@ -126,6 +125,9 @@ while True:
     cv2.imshow("Mascara Verde", green_mask)
     cv2.imshow("Mascara Azul", blue_mask)
     cv2.imshow("Mascara Blanco", white_mask)
+
+    max_contour = None; max_color = None; 
+    max_color_name = None; max_bounding_rect = None
 
     key = cv2.waitKey(1) & 0xFF
     if key == ord('q'):
