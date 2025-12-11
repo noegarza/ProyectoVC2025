@@ -122,7 +122,7 @@ while True:
     cv2.putText(frame, fps_text, (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0, 255, 0), 2, cv2.LINE_AA)
     cv2.imshow("YOLO Inference", frame)
     # Salir con Q
-    if (cv2.waitKey(1) & 0xFF == ord('q')) or not clasesPorEncontrar:
+    if (cv2.waitKey(1) & 0xFF == ord('q') or len(clasesPorEncontrar)==0):
 
         meanFPS = np.mean(allFPS)
 
